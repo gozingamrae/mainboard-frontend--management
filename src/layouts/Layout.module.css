@@ -1,0 +1,9 @@
+input {
+    width: 100%;
+}
+.layoutBox {
+  /* background-color: #aaaaaa; */
+  display: flex;
+  width: 100%;
+  height: 100%;
+}

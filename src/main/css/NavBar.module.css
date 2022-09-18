@@ -1,0 +1,50 @@
+.navbarBox {
+    background-color: #445163;
+    width : 210px;
+    height : 100vh;
+    display : flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+.selectBox{
+    width: 70%;
+    height: 25px;
+    background-color: #37404d;
+    border: 1px solid #646d7b;
+    color : #cdced1;
+    margin : 10px;
+    border-radius: 0%;
+    /* cursor : pointer; */
+}
+.searchBox{
+    display : flex;
+    width : 70%;
+    height : 25px;
+    border-bottom: 1px solid #cdced1;
+}
+.searchBox input{
+    background-color: #AAAAAA00;
+    outline: none;
+    border: 0px;
+}
+
+.mainlogo{
+    color : white;
+    font-size : 30px;
+}
+.navButtonBox{
+    width: 100%;
+    color : white;
+}
+.navButton{
+    background-color: #515b6a;
+    text-align: left;
+    border-bottom: 1px solid rgb(77, 81, 89);
+}
+.navButton2{
+    background-color: #414958;
+}
+.navButtonBox div{
+    padding : 20px;
+}
