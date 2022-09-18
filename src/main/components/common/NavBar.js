@@ -1,6 +1,8 @@
+import { useState } from "react";
 import style from "../../css/NavBar.module.css"
 
 function NavBar() {
+  const [ focusNavBar, setFocusNavBar ] = useState(null);
   const navs = [{name: "상품관리", src : "/produc"},
                 {name: "판매관리", src : "/produc"},
                 {name: "정산관리", src : "/produc"},
@@ -28,6 +30,13 @@ function NavBar() {
                   {value : 1, name :"상품번호"},
                   {value : 1, name :"운송장번호"}]
 
+    //navbutton 클릭 핸들러
+    const onClickNav = (e) => {
+      console.log(e.target.id);
+      focusNavBar == e.target.id? setFocusNavBar(null):
+      setFocusNavBar(e.target.id);
+  }
+
   return (
     <div className={style.navbarBox}>
       <h1 className={style.mainlogo}> Mainboard </h1>
@@ -41,14 +50,16 @@ function NavBar() {
       <div className={style.navButtonBox}>
         <ul>
           {navs.map((nav, index)=>(
-                    <li key = {index} className={style.navButton}>
-                      <div>{nav.name}</div>
+                    <li id = {index} key = {index} className={style.navButton} onClick={onClickNav}>
+                      <div id = {index}>{nav.name}</div>
                       <ul>
-                        {results[index].map((result)=>(
-                          <li className={style.navButton2}>
-                            <div>{result.name}</div>
-                          </li>
-                        ))}
+                        {focusNavBar==index?  
+                          results[index].map((result)=>(
+                            <li className={style.navButton2}>
+                              <div>{result.name}</div>
+                            </li>
+                          )):null
+                        }
                       </ul>
                     </li>
                 ))}
