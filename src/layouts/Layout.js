@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Header from "../main/components/common/Header";
-import Navbar from "../main/components/common/NavBar";
-import Footer from "../main/components/common/Footer";
-import style from "./Layout.module.css";
+import Header from "./components/common/Header";
+import Navbar from "./components/common/NavBar";
+import Footer from "./components/common/Footer";
+import style from "./css/Layout.module.css";
 
 function Layout() {
   return (
