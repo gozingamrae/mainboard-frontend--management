@@ -9,6 +9,7 @@ a {
     flex-direction: column;
     justify-content: top;
     align-items: center;
+    padding-top : 20px;
 }
 .selectBox{
     width: 70%;
@@ -16,8 +17,9 @@ a {
     background-color: #37404d;
     border: 1px solid #646d7b;
     color : #cdced1;
-    margin : 10px;
+    margin-top : 40px;
     border-radius: 0%;
+
     /* cursor : pointer; */
 }
 .searchBox{
@@ -25,6 +27,7 @@ a {
     width : 70%;
     height : 25px;
     border-bottom: 1px solid #cdced1;
+    margin : 20px;
 }
 .searchBox input{
     background-color: #AAAAAA00;
