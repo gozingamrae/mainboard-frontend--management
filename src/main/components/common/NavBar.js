@@ -1,35 +1,14 @@
 import { useState } from "react";
 import style from "../../css/NavBar.module.css"
 import {NavLink, Outlet, useNavigate} from 'react-router-dom';
+import navData from "./NavBar.data.json";
 
 function NavBar() {
   const [ focusNavBar, setFocusNavBar ] = useState(null);
-  const navs = [{name: "상품관리", src : "/produc"},
-                {name: "판매관리", src : "/produc"},
-                {name: "정산관리", src : "/produc"},
-                {name: "문의/리뷰 관리", src : "/produc"}];
-  const results = [[{name : "상품 등록", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"}],
-                  [{name : "상품 조회/수정", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"},
-                   {name : "상품 조회/수정", src : "/produc"}],
-                  [{name : "상품 조회/수정", src : "/produc"},
-                  {name : "상품 조회/수정", src : "/produc"}],
-                  [{name : "상품 조회/수정", src : "/produc"},
-                  {name : "상품 조회/수정", src : "/produc"}],
-                  [{name : "상품 조회/수정", src : "/produc"}]];
-  
-  //select 옵션 값
-  const options = [{value : 1, name :"수취인명"},
-                  {value : 1, name :"구매자명"},
-                  {value : 1, name :"구매자 연락처"},
-                  {value : 1, name :"구매자 ID"},
-                  {value : 1, name :"주문번호"},
-                  {value : 1, name :"상품번호"},
-                  {value : 1, name :"운송장번호"}]
+
+  const navs = navData.navs;
+  const results = navData.results;
+  const options = navData.options;
 
     //navbutton 클릭 핸들러
     const onClickNav = (e) => {
