@@ -11,11 +11,26 @@
     margin-top : 10px;
     background-color: white;
     padding : 10px;
-    font-size: 20px;
+    font-size: 15px;
     border : 1px solid #CCCCCC;
 }
 .icon{
     width : 30px;
     height : 30px;
+}
+.inventoryTable{
+    width : 100%;
+}
+.inventoryTable th {
+    text-align: center;
+    padding : 10px;
+    border-top : 1px solid #CCCCCC;
+    border-bottom : 1px solid #CCCCCC;
+}
+
+.inventoryTable td {
+    text-align: center;
+    padding : 10px;
+    border-bottom : 1px solid #EEEEEE;
 }
 
