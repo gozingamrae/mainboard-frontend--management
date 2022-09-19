@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .navbarBox {
     background-color: #445163;
     width : 210px;
@@ -5,6 +9,7 @@
     flex-direction: column;
     justify-content: top;
     align-items: center;
+    padding-top : 20px;
 }
 .selectBox{
     width: 70%;
@@ -12,15 +17,15 @@
     background-color: #37404d;
     border: 1px solid #646d7b;
     color : #cdced1;
-    margin : 10px;
+    margin-top : 40px;
     border-radius: 0%;
-    /* cursor : pointer; */
 }
 .searchBox{
     display : flex;
     width : 70%;
     height : 25px;
     border-bottom: 1px solid #cdced1;
+    margin : 20px;
 }
 .searchBox input{
     background-color: #AAAAAA00;
@@ -32,6 +37,7 @@
 .mainlogo{
     color : white;
     font-size : 30px;
+    text-decoration: none;
 }
 .navButtonBox{
     width: 100%;
@@ -50,5 +56,5 @@
     color : white;
 }
 .navButton2 div:hover {
-    color : green;
+    color : rgb(195, 115, 219);
 }
