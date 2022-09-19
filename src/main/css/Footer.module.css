@@ -1,0 +1,15 @@
+.footerBox{
+    height : 150px;
+    background-color: #edf0f5;
+    color : #4d5159;
+    display: flex;    
+    flex-wrap: wrap;
+    justify-content: center;
+    padding : 40px;
+    font-size : 14px;
+}
+
+.footerBox div{
+    text-align: center;
+    width: 100%;
+}

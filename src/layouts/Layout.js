@@ -8,10 +8,10 @@ function Layout() {
   return (
     <div className={style.layoutBox}>
       {/* <Header /> */}
-      <Navbar />
-      <div>
-        <Outlet />
-        <Footer />
+      <Navbar/>
+      <div className = {style.resultBox}>
+        <Outlet/>
+        <Footer/>
       </div>
     </div>
   );

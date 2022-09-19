@@ -1,26 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "../../css/NavBar.module.css"
 import {NavLink, Outlet, useNavigate} from 'react-router-dom';
-import navData from "./NavBar.data.json";
+import navData from "../../data/NavBar.data.json";
 
 function NavBar() {
   const [ focusNavBar, setFocusNavBar ] = useState(null);
+  const [ beforeNavBar, setBeforeNavBar ] = useState(null);
 
+  const options = navData.options;
   const navs = navData.navs;
   const results = navData.results;
-  const options = navData.options;
 
-    //navbutton 클릭 핸들러
-    const onClickNav = (e) => {
-      console.log(e.target.id);
-      focusNavBar == e.target.id? setFocusNavBar(null):
-      setFocusNavBar(e.target.id);
+  //navbutton 클릭 핸들러
+  const onClickNav = (e) => {
+    
+    //버튼 클릭하며 포커스 버튼 변경
+    setFocusNavBar(e.target.id);
+
+    //같은 버튼 누르면 접기
+    if(beforeNavBar == e.target)
+    {
+        setFocusNavBar(null);
+        setBeforeNavBar(null);
+    }  
+    else{
+       (setBeforeNavBar(e.target))
+    }
   }
 
   return (
     <div className={style.navbarBox}>
       {/* 메인 로고 */}
-      <h1 className={style.mainlogo}> Mainboard </h1>
+      <NavLink  to={"/"}><h1 className={style.mainlogo}> Mainboard </h1></NavLink>
       {/* 셀렉트 박스 */}
       <select className={style.selectBox}>
         {options.map((option)=>(<option>{option.name}</option>))}
@@ -40,7 +51,7 @@ function NavBar() {
                         {focusNavBar==index?  
                           results[index].map((result)=>(
                             <li className={style.navButton2}>
-                              <NavLink to={result.src}><div>{result.name}</div></NavLink>
+                              <NavLink id={index} to={result.src}><div id={index}>{result.name}</div></NavLink>
                             </li>
                           )):null
                         }
