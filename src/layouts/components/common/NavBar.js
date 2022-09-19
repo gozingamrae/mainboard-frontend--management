@@ -9,7 +9,6 @@ function NavBar() {
 
   const options = navData.options;
   const navs = navData.navs;
-  const results = navData.results;
 
   //navbutton 클릭 핸들러
   const onClickNav = (e) => {
@@ -41,7 +40,7 @@ function NavBar() {
         <input type="text" placeholder="검색창"/>
         <button>검색</button>
       </div>
-      {/* 네비게이션 바 */}
+      {/* 네비게이션 버튼 */}
       <div className={style.navButtonBox}>
         <ul>
           {navs.map((nav, index)=>(
@@ -49,7 +48,7 @@ function NavBar() {
                       <div id = {index}>{nav.name}</div>
                       <ul>
                         {focusNavBar==index?  
-                          results[index].map((result)=>(
+                          nav.results.map((result)=>(
                             <li className={style.navButton2}>
                               <NavLink id={index} to={result.src}><div id={index}>{result.name}</div></NavLink>
                             </li>
