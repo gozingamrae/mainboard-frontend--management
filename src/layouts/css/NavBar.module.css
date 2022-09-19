@@ -1,7 +1,6 @@
 .navbarBox {
     background-color: #445163;
     width : 210px;
-    height : 100vh;
     display : flex;
     flex-direction: column;
     justify-content: top;
@@ -27,6 +26,7 @@
     background-color: #AAAAAA00;
     outline: none;
     border: 0px;
+    width : 100%
 }
 
 .mainlogo{
