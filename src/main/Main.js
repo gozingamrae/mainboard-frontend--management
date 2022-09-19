@@ -1,7 +1,8 @@
+import style from "./css/Main.module.css";
+
 function Main() {
   return (
-    <div>
-      <h1> 메인 화면</h1>
+    <div clasName={style.meinBox}>
       <div>
          <div>
             <h2>주문/배송</h2>
