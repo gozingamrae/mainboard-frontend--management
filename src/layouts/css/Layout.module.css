@@ -1,6 +1,3 @@
-input {
-    width: 100%;
-}
 .layoutBox {
   /* background-color: #aaaaaa; */
   display: flex;
@@ -14,6 +11,7 @@ input {
   display: flex;
   align-content: space-between;
   align-items: baseline;
+  height: 100%;
   width: 100%;
 }
 .resultBox div{

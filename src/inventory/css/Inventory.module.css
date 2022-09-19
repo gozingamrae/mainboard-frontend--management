@@ -1,0 +1,21 @@
+.inventoryBox{
+    padding: 10px;
+}
+.title{
+    background-color : white;
+    padding : 10px;
+    font-size: 20px;
+    border : 1px solid #CCCCCC;
+}
+.box{
+    margin-top : 10px;
+    background-color: white;
+    padding : 10px;
+    font-size: 20px;
+    border : 1px solid #CCCCCC;
+}
+.icon{
+    width : 30px;
+    height : 30px;
+}
+
