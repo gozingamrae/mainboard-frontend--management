@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .navbarBox {
     background-color: #445163;
     width : 210px;
@@ -32,6 +36,7 @@
 .mainlogo{
     color : white;
     font-size : 30px;
+    text-decoration: none;
 }
 .navButtonBox{
     width: 100%;
@@ -50,5 +55,5 @@
     color : white;
 }
 .navButton2 div:hover {
-    color : green;
+    color : rgb(195, 115, 219);
 }
