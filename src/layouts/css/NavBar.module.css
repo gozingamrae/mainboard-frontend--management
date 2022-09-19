@@ -1,7 +1,6 @@
 .navbarBox {
     background-color: #445163;
     width : 210px;
-    height : 200%;
     display : flex;
     flex-direction: column;
     justify-content: top;
