@@ -6,7 +6,7 @@
                {"name": "판매관리", "results" :[{"name" : "재고 조회", "src" : "/produc"},
                                                 {"name" : "재고 입고", "src" : "/produc"},
                                                 {"name" : "재고 출고", "src" : "/produc"}]},
-               {"name": "재고관리","results" :[{"name" : "새상품 입고", "src" : "/inventory"},
+               {"name": "재고관리","results" :[{"name" : "재고 입고", "src" : "/warehousing"},
                                                 {"name" : "재고 조회", "src" : "/inventory"},
                                                 {"name" : "재고 출고", "src" : "/produc"}]},
                 {"name": "검수관리", "results" : [{"name" : "검수 재고 조회", "src" : "/produc"},
