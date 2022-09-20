@@ -10,8 +10,8 @@ function Layout() {
       {/* <Header /> */}
       <Navbar/>
       <div className = {style.resultBox}>
-        <Outlet/>
-        <Footer/>
+        <Outlet className ={style.result} />
+        <Footer className ={style.result}/>
       </div>
     </div>
   );

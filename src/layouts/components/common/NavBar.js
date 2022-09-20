@@ -45,7 +45,7 @@ function NavBar() {
         <ul>
           {navs.map((nav, index)=>(
                     <li id = {index} key = {index} className={style.navButton} onClick={onClickNav}>
-                      <div id = {index}>{nav.name}</div>
+                      <div id={index}>{nav.name}</div>
                       <ul>
                         {focusNavBar==index?  
                           nav.results.map((result)=>(

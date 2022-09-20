@@ -3,7 +3,7 @@ a {
 }
 
 .navbarBox {
-    background-color: #445163;
+    background-color: #3F4B5C;
     width : 210px;
     display : flex;
     flex-direction: column;
@@ -19,6 +19,10 @@ a {
     color : #cdced1;
     margin-top : 40px;
     border-radius: 0%;
+    font-size: 10px;
+}
+.mainlogo{
+    font-size: 25px;
 }
 .searchBox{
     display : flex;
@@ -31,29 +35,44 @@ a {
     background-color: #AAAAAA00;
     outline: none;
     border: 0px;
-    width : 100%
+    width : 100%;
+    font-size:10px;
 }
 
 .mainlogo{
     color : white;
-    font-size : 30px;
+    align-content: center;
     text-decoration: none;
 }
 .navButtonBox{
     width: 100%;
     color : white;
 }
-.navButton{
-    background-color: #515b6a;
-    text-align: left;
-    border-bottom: 1px solid rgb(77, 81, 89);
-}
-.navButton2{
-    background-color: #414958;
-}
 .navButtonBox div{
     padding : 20px;
     color : white;
+}
+.navButton{
+    background-color: #445163;
+    text-align: left;
+    font-size: 10px;
+    font-weight: bold;
+}
+.navButton:after {
+    content: "";
+    display: block;
+    width: 80%;
+    border-bottom: 1px solid #646d7b;
+    margin: 0 auto;
+}
+.navButton2{
+    background-color: #414958;
+    font-weight: 100;
+}
+.navButton2 div{
+    color : #CCCCCC;
+    padding-top : 8px;
+    padding-bottom : 8px;
 }
 .navButton2 div:hover {
     color : rgb(195, 115, 219);

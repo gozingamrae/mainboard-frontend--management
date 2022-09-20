@@ -1,0 +1,61 @@
+.productBox{
+    padding: 10px;
+    width : 100%;
+}
+.title{
+    background-color : white;
+    padding : 10px;
+    font-size: 20px;
+    border : 1px solid #CCCCCC;
+}
+.titleBox{
+    margin-top : 10px;
+    background-color: white;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid #CCCCCC;
+    display: flex;
+    justify-content: space-around;
+    padding : 50px;
+}
+.titleBox div{
+    display : flex;
+}
+.box{
+    margin-top : 10px;
+    background-color: white;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid #CCCCCC;
+}
+.subTitle{
+    padding : 15px 10px 15px 10px;
+    border-bottom: 1px solid #CCCCCC;
+}
+.icon{
+    width : 30px;
+    height : 30px;
+}
+.productTable{
+    width : 100%;
+}
+.productTable tr{
+    border : 1px solid #CCCCCC;
+}
+.productTable th {
+    text-align: center;
+    padding : 10px;
+    border: 1px solid #CCCCCC;
+}
+.productTable td {
+    text-align: center;
+    padding : 10px;
+    border-bottom : 1px solid #EEEEEE;
+}
+.circle{
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+}
+
