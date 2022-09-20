@@ -1,6 +1,6 @@
 import style from "./css/Product.module.css"
 import data from "./data/Product.data.json";
-import TitleBox from "./components/Product/titleBox";
+import TitleBox from "./components/Product/TitleBox";
 import ProductTable from "./components/Product/ProductTable";
 import SearchBox from "./components/Product/SearchBox";
 
