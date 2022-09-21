@@ -7,7 +7,7 @@ function TitleBox(){
                     <div className={style.circle}/>
                     <div>
                         <p>전체</p>
-                        <p>1건</p>
+                        <p>2건</p>
                     </div>
                 </div>
                 <div>
