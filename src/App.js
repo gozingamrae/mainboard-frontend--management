@@ -8,7 +8,7 @@ import Warehousing from "./inventory/Warehousing";
 import Product from "./product/Product";
 import AddProduct from "./product/AddProduct";
 import Inspect from "./inspect/Inspect";
-
+import Common from "./common/Common";
 import "./App.module.css";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
-          <Route index element={<Main/>} />
+          <Route index element={<Common/>} />
           <Route path="/inventory" element={<Inventory/>} />
           <Route path="/warehousing" element={<Warehousing/>} />
           <Route path="/product" element={<Product/>} />
