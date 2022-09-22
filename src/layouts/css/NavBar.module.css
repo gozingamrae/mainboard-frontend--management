@@ -3,7 +3,7 @@ a {
 }
 
 .navbarBox {
-    background-color: #3F4B5C;
+    background-color: #E0DAF1;
     width : 210px;
     display : flex;
     flex-direction: column;
@@ -14,21 +14,18 @@ a {
 .selectBox{
     width: 70%;
     height: 25px;
-    background-color: #37404d;
-    border: 1px solid #646d7b;
-    color : #cdced1;
+    background-color: #EBE9F2;
+    border: 1px solid #000000;
+    color : #000000;
     margin-top : 40px;
     border-radius: 0%;
     font-size: 10px;
-}
-.mainlogo{
-    font-size: 25px;
 }
 .searchBox{
     display : flex;
     width : 70%;
     height : 25px;
-    border-bottom: 1px solid #cdced1;
+    border-bottom: 1px solid #635970;
     margin : 20px;
 }
 .searchBox input{
@@ -38,22 +35,27 @@ a {
     width : 100%;
     font-size:10px;
 }
-
+.searchBox img{
+    margin : auto;
+    width : 15px;
+    height : 15px;
+}
 .mainlogo{
-    color : white;
+    color : #7332C3;
     align-content: center;
     text-decoration: none;
+    font-size: 20px;
 }
 .navButtonBox{
     width: 100%;
-    color : white;
+    color : black;
 }
 .navButtonBox div{
     padding : 20px;
-    color : white;
+    color : black;
 }
 .navButton{
-    background-color: #445163;
+    background-color: #A086F1;
     text-align: left;
     font-size: 10px;
     font-weight: bold;
@@ -66,11 +68,11 @@ a {
     margin: 0 auto;
 }
 .navButton2{
-    background-color: #414958;
+    background-color: #C8B8FB;
     font-weight: 100;
 }
 .navButton2 div{
-    color : #CCCCCC;
+    color : #635970;
     padding-top : 8px;
     padding-bottom : 8px;
 }

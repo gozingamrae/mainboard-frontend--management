@@ -38,7 +38,7 @@ function NavBar() {
       {/* 검색창 */}
       <div className={style.searchBox}>
         <input type="text" placeholder="검색창"/>
-        <button>검색</button>
+        <img src="/main/search_button.png"/>
       </div>
       {/* 네비게이션 버튼 */}
       <div className={style.navButtonBox}>
