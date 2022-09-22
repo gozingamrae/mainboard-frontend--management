@@ -27,6 +27,25 @@
     padding : 10px;
     font-size: 15px;
     border : 1px solid #CCCCCC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.subBox{
+    display : flex; 
+    padding : 10px;
+    font-weight: 100;
+    font-size : 13px;
+}
+.subBox h4{
+    font-weight: 100;
+    font-size : 13px;
+    width : 150px;
+    margin-right : 10px;
+}
+.subBox input{
+    margin-right: 10px;
+    margin-left : 3px;
 }
 .subTitle{
     padding : 15px 10px 15px 10px;
@@ -58,4 +77,17 @@
   height: 50px;
   background-color: gray;
 }
+.sliderBox{
+    width : 300px;
+}
 
+.submitButton{
+    width :200px;
+    height : 30px;
+    margin : 0 auto;
+    background-color: #d8b7d1AA;
+    border : 1px solid #cccccc;
+}
+.submitButton:hover{
+    background-color: #d8b7d1;
+}

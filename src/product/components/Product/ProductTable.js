@@ -5,7 +5,7 @@ function ProductTable(){
     const products = data.products;
     return (
         <div className={style.box}>
-                <div className={style.subTitle}>상품 목록 (총 <span style={{color : "rgb(195, 115, 219)"}}>{totalProductNum}</span>개)</div>
+                <div className={style.subTitle}>상품 목록 (총 <span style={{color : "rgb(195, 115, 219)"}}>{products.length}</span>개)</div>
                 <div> 
                     버튼 모음
                 </div>
