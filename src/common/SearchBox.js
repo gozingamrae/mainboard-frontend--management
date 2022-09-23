@@ -86,7 +86,7 @@ function SearchBox(){
             </div>
             <div className={style.subBox}>
                 <img src="/common/calendar.png"/>
-                <input type="date" id="start" name="trip-start" min="2018-01-01" max="2018-12-31"  className={style.calendar}/>
+                <input type="date" min="2022-01-01" max="2039-12-31"  className={style.calendar}/>
             </div>
                 <div><button className={style.searchButton}>검색버튼</button>
             </div>
