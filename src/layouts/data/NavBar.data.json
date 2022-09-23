@@ -14,7 +14,10 @@
                 {"name": "검수관리", "results" : [{"name" : "검수 재고 조회", "src" : "/produc"},
                                                    {"name" : "검수하기", "src" : "/produc"}]},
                {"name": "배송관리", "results" : [{"name" : "배송조회", "src" : "/produc"},
-                                                   {"name" : "배송지 목록 조회", "src" : "/produc"}]}],
+                                                   {"name" : "배송지 목록 조회", "src" : "/produc"}]},
+               {"name": "혜택관리", "results" : [{"name" : "쿠폰등록", "src" : "/cuponRegist"},
+                                                   {"name" : "포인트 내역", "src" : "/produc"}]}
+                                                ],
    "options" :[{"value" : 1, "name" :"수취인명"},
                 {"value" : 2, "name" :"구매자명"},
                 {"value" : 3, "name" :"구매자 연락처"},

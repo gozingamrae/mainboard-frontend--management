@@ -6,6 +6,7 @@ import Inventory from "./inventory/Inventory";
 import Warehousing from "./inventory/Warehousing";
 import Product from "./product/Product";
 import AddProduct from "./product/AddProduct";
+import CuponRegist from "./cupon/pages/cuponregist";
 import "./App.module.css";
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/warehousing" element={<Warehousing/>} />
           <Route path="/product" element={<Product/>} />
           <Route path="/addproduct" element={<AddProduct/>} />
+          <Route path="/cuponregist" element={<CuponRegist/>}/>
           <Route path="/*" element={<Error/>} />
         </Route>
       </Routes>

@@ -1,0 +1,55 @@
+.inventoryBox{
+    padding: 10px;
+    width : 100%;
+}
+.title{
+    background-color : white;
+    padding : 10px;
+    font-size: 20px;
+    border : 1px solid #7332C3;
+}
+.box{
+    margin-top : 10px;
+    background-color: #F8F5FF;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid #CCCCCC;
+}
+.targetRadioText{
+    display: contents;
+}
+.cuponRegistTable{
+    display: inline-table;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.cuponRegistTable td{
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    padding:5px;
+}
+
+.cuponRegistTableTD:hover{
+    display: inline-table;
+    color:#7332C3;
+    border-style: solid;
+    border-width: 1px;
+}
+.cuponRegistLabel{
+    display: inline-block;
+    width: 120px;
+    height: 20px;
+    padding-right: 30px;
+    margin: 15px;
+}
+.cuponRegistInputBox{
+    width: 220px;
+    height: 25px;
+    font-size: 15px;
+}
+.selectiveBox{
+    padding-top: 10px;
+    background-color: #EBE9F2;
+}
