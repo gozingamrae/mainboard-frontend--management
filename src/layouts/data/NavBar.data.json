@@ -13,11 +13,12 @@
                                                 {"name" : "검수하기", "src" : "/inspect"}]},
                {"name": "배송관리", "results" : [{"name" : "배송조회", "src" : "/produc"},
                                                    {"name" : "배송지 목록 조회", "src" : "/produc"}]},
-               {"name": "회원관리", "results" : [{"name" : "공지사항 조회/수정", "src" : "/produc"}]},
+               {"name": "회원관리", "results" : [{"name" : "회원정보", "src" : "/member"}]},
                {"name": "공지사항 관리", "results" : [{"name" : "공지사항 관리", "src" : "/produc"},
                                                       {"name" : "공지사항 조회/수정", "src" : "/produc"}]},
                {"name": "혜택관리", "results" : [{"name" : "쿠폰등록", "src" : "/cuponregist"},
                                                       {"name" : "포인트", "src" : "/produc"}]}
+
                                                    ],
 
    "options" :[{"value" : 1, "name" :"수취인명"},
