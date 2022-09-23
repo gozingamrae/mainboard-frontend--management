@@ -211,3 +211,9 @@ input[type="text"]{
     background: #FFFFFF;
     border: 1px solid #000000;
 }
+
+/* 회원 상세 정보 테이블 */
+
+.tableBox{
+    padding: 47px 300px 47px 300px;
+}
