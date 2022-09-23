@@ -1,7 +1,8 @@
-import "./SearchBox"
-import CuponRegistTable from "./cuponregistTable.js";
+import SearchBox from "./SearchBox"
+import CuponRegistTable from "./cuponreportTable"
 import "../css/cuponreport-style.css"
 
+//스타일 예시
 function cuponRegist(){
     return (
         <div className="componentBox">
@@ -28,9 +29,9 @@ function cuponRegist(){
 
                 <div className="subBox">
                     <h1>쿠폰 조회 기간</h1>
-                    <img src="/common/calendar.png" alt="ERROR" />
+                    <img src="/common/calendar.png" alt="제발돼라" />
                     <input className="dateInput" type="date" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp;
-                    <img src="/common/calendar.png" alt="ERROR" />
+                    <img src="/common/calendar.png" alt="제발돼라" />
                     <input className="dateInput" type="date" name="cuponReportTypeRadio"/>
                 </div>
             </div>

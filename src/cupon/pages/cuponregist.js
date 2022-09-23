@@ -1,126 +1,126 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "../css/cuponregist-style.css";
+import CuponRegistTable from "./cuponregistTable";
 
 
-function Warehousing(){
-    const [searchText , setSearchText ] = useState("");
 
-    const nav = useNavigate();
-    //카테고리 타입 옵션 데이터
-    const categorys = [{ type : "전략"},{ type : "파티"},{ type : "심리"},{ type : "추리"}];
-    const types = [{ name : "부루마블"},{ name : "스플랜더"},{ name : "할리갈리"},{ name : "로보77"},{ name : "루미큐브"},{ name : "루미큐브"},{ name : "루미큐브"},{ name : "루미큐브"}];
-    
-    const onChangeHandle = (e) => {
-        setSearchText(e.target.value);
-        console.log("hello");
-    };
-    const onClickHandler = (e) => {
-        console.log("hello");
-       
-    }
-    const onClickSubmit = () => {
-        nav("/");
+
+function CuponRegist(){
+
+    const [focusData, setFocusData]  = useState({"subButton" : 0 , "pageNum" : 1});
+    const [focusDataA, setFocusDataA]  = useState({"subButton" : 0 , "pageNum" : 1});
+    const [focusDataB, setFocusDataB]  = useState({"subButton" : 0 , "pageNum" : 1});
+
+    const onClickButton = (e) => {
+        setFocusData({ ...focusData, "subButton" : e.target.id});
     }
 
-    return (
-        <div className= "inventoryBox">
-            <div className="title">
-                쿠폰등록
+    const onClickButtonA = (e) => {
+        setFocusDataA({ ...focusDataA, "subButton" : e.target.id});
+    }
+
+    const onClickButtonB = (e) => {
+        setFocusDataB({ ...focusDataB, "subButton" : e.target.id});
+    }
+
+    return(
+        <div className='componentBox'>
+
+            <div className="box">쿠폰등록</div>
+
+            <div className="box" style={{backgroundColor: "#F8F5FF"}}>
+                <div className="subBox">
+                <h1>쿠폰이름</h1>
+                <input type="text" />
+                </div>
+
+                <div className="subBox"  style={{backgroundColor: "#EBE9F2"}}>
+                    <h1>재구매 고객 조건</h1>   
+                    <div>
+                        {focusData.subButton === "subButton1"? 
+                        <div id="subButton" onClick={onClickButton} className="clickedSubButton">1개월</div> : <div id="subButton1" onClick={onClickButton} className="subButton">1개월</div>}
+                        {focusData.subButton ==="subButton2"? 
+                        <div id="subButton" onClick={onClickButton} className="clickedSubButton">3개월</div> : <div id="subButton2" onClick={onClickButton} className="subButton">3개월</div>}
+                        {focusData.subButton ==="subButton3"? 
+                        <div id="subButton" onClick={onClickButton} className="clickedSubButton">6개월</div> : <div id="subButton3" onClick={onClickButton} className="subButton">6개월</div>}
+                         {focusData.subButton ==="subButton4"? 
+                        <div id="subButton" onClick={onClickButton} className="clickedSubButton">직접입력</div> : <div id="subButton4" onClick={onClickButton} className="subButton">직접입력</div>}
+                        
+                        &nbsp;&nbsp;
+                        <img src="/common/calendar.png" alt="제발돼라" />&nbsp;<input type="date"/>&nbsp;
+                        &nbsp; ~ &nbsp;
+                        <img src="/common/calendar.png" alt="제발돼라" />&nbsp;<input type="date"/>&nbsp;
+                    </div>
+                </div>
+
+                <div className="subBox">
+                    <h1>지급 대상</h1>
+                    <input type="radio" value="all" name="cuponReportRadio"/> 전체고객 &nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="first" name="cuponReportRadio"/> 첫구매고객 &nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="again" name="cuponReportRadio"/> 재구매고객 &nbsp;&nbsp;&nbsp;
+                </div>
+
+                <div className="subBox">
+                    <h1>쿠폰 종류</h1>
+                    <input type="radio" value="productDiscount" name="cuponReportTypeRadio"/> 상품할인 &nbsp;&nbsp;&nbsp;
+                    <input type="radio" value="deliveryFeeDiscount" name="cuponReportTypeRadio"/> 배송비 할인 &nbsp;&nbsp;&nbsp;
+                </div>
+
+                <div className="subBox">
+                    <h1>발급 건수 제한</h1>   
+                    <div>
+                        {focusDataA.subButton ==="subButton5"? 
+                        <div id="subButtonA" onClick={onClickButtonA} className="clickedSubButton">있음</div> : <div id="subButton5" onClick={onClickButtonA} className="subButton">있음</div>}
+                        {focusDataA.subButton ==="subButton6"? 
+                        <div id="subButtonA" onClick={onClickButtonA} className="clickedSubButton">없음</div> : <div id="subButton6" onClick={onClickButtonA} className="subButton">없음</div>}
+                    </div>
+                </div>
+
+                <div className="subBox" style={{backgroundColor: "#EBE9F2"}}>
+                <h1>제한 개수</h1>
+                <input type="text" />
+                </div>
+
+                <div className="subBox">
+                    <h1>할인 설정</h1>   
+                    <div>
+                        {focusDataB.subButton ==="subButton7"? 
+                        <div id="subButton1" onClick={onClickButtonB} className="clickedSubButton">비율(%)</div> : <div id="subButton7" onClick={onClickButtonB} className="subButton">비율(%)</div>}
+                        {focusDataB.subButton ==="subButton8"? 
+                        <div id="subButton2" onClick={onClickButtonB} className="clickedSubButton">금액(W)</div> : <div id="subButton8" onClick={onClickButtonB} className="subButton">금액(W)</div>}
+                    </div>
+                </div>
+
+                <div className="subBox" style={{backgroundColor: "#EBE9F2"}}>
+                <h1>비율(%)</h1>
+                <input type="text" /> &nbsp; %
+                </div>
+                <div className="subBox" style={{backgroundColor: "#EBE9F2"}}>
+                <h1>금액(W)</h1>
+                <input type="text" /> &nbsp; 원
+                </div>
+
+                <div className="subBox" >
+                <h1>최소 주문 금액</h1>
+                <input type="text" />
+                </div>
+
+                <div className="subBox">
+                    <h1>쿠폰 발급 기간</h1>
+                    <img src="/common/calendar.png" alt="제발돼라" />
+                    <input className="dateInput" type="date" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp;
+                    <img src="/common/calendar.png" alt="제발돼라" />
+                    <input className="dateInput" type="date" name="cuponReportTypeRadio"/>
+                </div>
             </div>
 
             <div className="box">
-                <label className="cuponRegistLabel">쿠폰 이름</label> 
-                <input className="cuponRegistInputBox" type="text" id="cuponName"/> 
-                <br/>
-
-                <lablel  className="cuponRegistLabel">지급 대상 </lablel>
-                <input type="radio" name="target" value="all"/><p className="targetRadioText">전체고객 </p> &nbsp;
-                <input type="radio" name="target" value="first"/><p className="targetRadioText">첫구매고객 </p> &nbsp;
-                <input type="radio" name="target" value="again"/><p className="targetRadioText">재구매고객 </p> &nbsp;
-                <br/>
-
-                {/*재구매고객 선택시 화면에 출력  */}
-                <div className="selectiveBox"> 
-                <label  className="cuponRegistLabel">재구매 고객 조건</label> &nbsp;
-                <table className="cuponRegistTable"> 
-                <tr><td className="cuponRegistTableTD"onClick={onClickHandler}>1개월</td>
-                <td className="cuponRegistTableTD">3개월</td>
-                <td className="cuponRegistTableTD">6개월</td>
-                <td className="cuponRegistTableTD">직접입력</td>
-                </tr>
-                </table>
-                <br/>
-                {/* 직접입력태그 선택 시 화면에 출력 */}
-                <input type="date" name="cuponCondition"/>~<input type="date" name="cuponCondition"/>
-                </div>
-
-                <labe className="cuponRegistLabel">쿠폰 종류</labe>
-                <input type="radio" name="cuponType" value="productDiscount"/><p className="targetRadioText">상품할인</p> &nbsp;
-                <input type="radio" name="cuponType" value="productDiscount"/><p className="targetRadioText">배송비할인</p> &nbsp;
-                <br/>
-
-                <label className="cuponRegistLabel">발급 건수 제한</label>
-                <table className="cuponRegistTable"> 
-                <tr>
-                    <td className="cuponRegistTableTD">있음</td>
-                    <td className="cuponRegistTableTD">없음</td>
-                </tr>
-                </table>
-                <br/>{/* 발급 건수 제한 있음 선택 시 화면에 출력 */}
-                <label className="cuponRegistLabel">제한 개수</label> 
-                <input className="cuponRegistInputBox" type="text" id="cuponQuantity"/> 개
-                <br/>
-
-
-                <label className="cuponRegistLabel">할인 설정</label>
-                    <table className="cuponRegistTable"> 
-                    <tr>
-                        <td className="cuponRegistTableTD">비율(%)</td>
-                        <td className="cuponRegistTableTD">금액(원)</td>
-                    </tr>
-                    </table>
-                <br/>
-
-                <div>{/* 비율 혹은 금액 선택에 따라 화면에 출력 */}
-                    <label className="cuponRegistLabel">비율(%)</label> 
-                    <input className="cuponRegistInputBox" type="text" id="discountRate"/> %
-                </div>
-                <div>
-                    <label className="cuponRegistLabel">금액(원)</label> 
-                    <input className="cuponRegistInputBox" type="text" id="discountRate"/> 원
-                </div>
-                <br/>
-
-
-                <label className="cuponRegistLabel">최소주문금액</label> 
-                <input className="cuponRegistInputBox" type="text" id="minAmount"/> 원
-                <br/>
-
-                <label className="cuponRegistLabel">쿠폰발급기간</label> 
-                <input type="date"/> ~ <input type="date"/>
-                <br/>
-
-                <label className="cuponRegistLabel">쿠폰유효기간(기준)</label>
-                <table className="cuponRegistTable">
-                    <tr>
-                        <td className="cuponRegistTableTD">기간</td>
-                        <td className="cuponRegistTableTD">발급일</td>
-                    </tr>
-                </table>
-                <br/>
-                <input type="date" name="cuponCondition"/>~<input type="date" name="cuponCondition"/>
-
-
-
-
+                <CuponRegistTable/>
             </div>
-            
-            <button style={{width : "100%" , height : "50px", margin : "10px"}} onClick={onClickSubmit}>
-                완료
-            </button>
+
+
         </div>
-    )
+    );
 }
 
-export default Warehousing;
+export default CuponRegist;
