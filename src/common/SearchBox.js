@@ -84,8 +84,11 @@ function SearchBox(){
                         <div id="subButton3" onClick={onClickButton} className={style.clickedSubButton}>3개월</div> : <div id="subButton3" onClick={onClickButton} className={style.subButton}>3개월</div>}
                 </div>
             </div>
-            <div>
-                <button className={style.searchButton}>검색버튼</button>
+            <div className={style.subBox}>
+                <img src="/common/calendar.png"/>
+                <input type="date" id="start" name="trip-start" min="2018-01-01" max="2018-12-31"  className={style.calendar}/>
+            </div>
+                <div><button className={style.searchButton}>검색버튼</button>
             </div>
 
         </div>
