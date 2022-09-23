@@ -12,6 +12,7 @@ import CuponReport from "./cupon/pages/cuponreport";
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
 import Member from "./member/pages/Member";
+import BlackList from "./member/pages/Blacklist";
 import "./App.module.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/cuponreport" element={<CuponReport/>} />
           <Route path="/inspect" element={<Inspect/>} />
           <Route path="/member" element={<Member/>} />
+          <Route path="/blacklist" element={<BlackList/>} />
           <Route path="/*" element={<Error/>} />
         </Route>
       </Routes>
