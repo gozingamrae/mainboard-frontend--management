@@ -1,12 +1,11 @@
-import style from "../common/Common.module.css"
-
+import style from "../css/Member.module.css";
 
 //스타일 예시
 function Member(){
     return (
         <div className={style.componentBox}>
             <div className={style.titleBox}>회원 조회</div>
-            <div className={style.box}>
+            <div className={[style.box, style.point].join(" ") } >
                 <div className={style.subBox}>
                     <h1>회원이름</h1>
                     <div>
@@ -57,7 +56,6 @@ function Member(){
         </div>
 
     )
-
 
 }
 

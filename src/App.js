@@ -10,7 +10,7 @@ import AddProduct from "./product/AddProduct";
 import CuponRegist from "./cupon/pages/cuponregist";
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
-import Member from "./member/Member";
+import Member from "./member/pages/Member";
 import "./App.module.css";
 
 function App() {
