@@ -10,10 +10,7 @@ function Common(){
             <SearchBox/>
             <CommonTable/>
         </div>
-
     )
-
-
 }
 
 export default Common;
