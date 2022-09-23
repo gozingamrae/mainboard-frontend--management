@@ -33,6 +33,12 @@ function cuponRegist(){
                     <img src="/common/calendar.png" alt="ERROR" />
                     <input className="dateInput" type="date" name="cuponReportTypeRadio"/>
                 </div>
+
+                <div className="subBox" style={{justifyContent: "center"}}>
+                <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp;
+                <button className="searchButton">완료</button>
+                </div>
+
             </div>
 
             <div className="box">
