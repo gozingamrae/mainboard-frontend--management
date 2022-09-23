@@ -7,6 +7,7 @@ import Inventory from "./inventory/Inventory";
 import Warehousing from "./inventory/Warehousing";
 import Product from "./product/Product";
 import AddProduct from "./product/AddProduct";
+import CuponRegist from "./cupon/pages/cuponregist";
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
 import "./App.module.css";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/warehousing" element={<Warehousing/>} />
           <Route path="/product" element={<Product/>} />
           <Route path="/addproduct" element={<AddProduct/>} />
+          <Route path="/cuponregist" element={<CuponRegist/>}/>
           <Route path="/inspect" element={<Inspect/>} />
           <Route path="/*" element={<Error/>} />
         </Route>
