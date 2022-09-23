@@ -13,6 +13,19 @@
     font-weight: bold;
 }
 
+.subButton{
+    background-color: white;
+    border : 1px solid black;
+    padding : 3px 10px 3px 10px;
+}
+.clickedSubButton{
+    background-color: white;
+    border : 1px solid #7332C3;
+    color : #7332C3;
+    padding : 3px 10px 3px 10px;
+}
+
+
 /* 검색 버튼 스타일 */
 .searchButton{
     background-color: #A086F1;
@@ -25,7 +38,6 @@
     font-weight: 100;
     margin: auto;
 }
-
 /* 박스 스타일 */
 .box{
     margin-top : 10px;
@@ -62,20 +74,29 @@
     display : flex;
     padding : 10px;
 }
-.subBox h1{
+
+.borderSubBox{
+    display : flex;
+    padding : 10px;
+    margin : 10px;
+    background-color: #EBE9F2 ;
+    border : 1px solid black;
+}
+
+.box h1{
     width : 30%;
     font-size : 10px;
     font-weight: 100;
 }
-.subBox div{
+.box div{
     font-size : 10px;
     display : flex;
 }
-.subBox .checkBox label{
+.box .checkBox label{
     margin-left: 10px;
     margin-right: 10px;
 }
-.subBox select{
+.box select{
     font-size : 10px;
 }
 .pageButtonBox{

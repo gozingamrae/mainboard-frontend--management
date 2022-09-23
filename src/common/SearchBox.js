@@ -1,6 +1,12 @@
+import { useState } from "react";
 import style from "./Common.module.css"
 
 function SearchBox(){
+    const [focusData, setFocusData]  = useState({"subButton" : 0 , "pageNum" : 1});
+    
+    const onClickButton = (e) => {
+        setFocusData({ ...focusData, "subButton" : e.target.id});
+    }
     return (
         <div className={style.box}>
             <h1>박스 제목</h1>
@@ -56,9 +62,32 @@ function SearchBox(){
                     <input type="text"/>
                 </div>
             </div>
+            <div className={style.subBox}>
+                <h1>작은 버튼</h1>
+                <div>
+                    {focusData.subButton =="subButton1"? 
+                        <div id="subButton1" onClick={onClickButton} className={style.clickedSubButton}>1개월</div> : <div id="subButton1" onClick={onClickButton} className={style.subButton}>1개월</div>}
+                        {focusData.subButton =="subButton2"? 
+                        <div id="subButton2" onClick={onClickButton} className={style.clickedSubButton}>2개월</div> : <div id="subButton2" onClick={onClickButton} className={style.subButton}>2개월</div>}
+                        {focusData.subButton =="subButton3"? 
+                        <div id="subButton3" onClick={onClickButton} className={style.clickedSubButton}>3개월</div> : <div id="subButton3" onClick={onClickButton} className={style.subButton}>3개월</div>}
+                </div>
+            </div>
+            <div className={style.borderSubBox}>
+                <h1>작은 버튼</h1>
+                <div>
+                    {focusData.subButton =="subButton1"? 
+                        <div id="subButton1" onClick={onClickButton} className={style.clickedSubButton}>1개월</div> : <div id="subButton1" onClick={onClickButton} className={style.subButton}>1개월</div>}
+                        {focusData.subButton =="subButton2"? 
+                        <div id="subButton2" onClick={onClickButton} className={style.clickedSubButton}>2개월</div> : <div id="subButton2" onClick={onClickButton} className={style.subButton}>2개월</div>}
+                        {focusData.subButton =="subButton3"? 
+                        <div id="subButton3" onClick={onClickButton} className={style.clickedSubButton}>3개월</div> : <div id="subButton3" onClick={onClickButton} className={style.subButton}>3개월</div>}
+                </div>
+            </div>
             <div>
                 <button className={style.searchButton}>검색버튼</button>
             </div>
+
         </div>
     )
 }
