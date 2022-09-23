@@ -21,9 +21,9 @@ function Member(){
                 <div className={style.subBox}>
                     <h1>블랙리스트 여부</h1>
                     <div>
-                        <input type="radio" id="black_true" name="blacklist" value="black_true"/>
+                        <input className={style.radiobox} type="radio" id="black_true" name="blacklist" value="black_true"/>
                         <label for="black_true"> O </label>
-                        <input type="radio" id="black_false" name="blacklist" value="black_false"/>
+                        <input className={style.radiobox} type="radio" id="black_false" name="blacklist" value="black_false"/>
                         <label for="black_false"> X </label>
                     </div>
                 </div>
@@ -33,14 +33,15 @@ function Member(){
                         <input type="date" id="regist_date" />
                     </div>
                 </div>
-
-                    <button className={style.searchButton}>전체보기</button>
+                <div className={style.buttonsbox}>
+                    <button className={style.searchButtonAll}>전체보기</button>
                     <button className={style.searchButton}>검색</button>
+                </div>
             </div>
             <div className={style.box}>
             <table>
                 <tr><th>이름</th><th>아이디</th><th>블랙리스트 여부</th><th>가입날짜</th><th>상세정보</th></tr>
-                <tr><td>이유리</td><td>leeyr426</td><td>N</td><td>2022.04.26</td><td><button className={style.searchButton}>상세정보</button></td></tr>
+                <tr><td>이유리</td><td>leeyr426</td><td>N</td><td>2022.04.26</td><td><button className={style.detailButton}>상세정보</button></td></tr>
             </table>
             <div className={style.pageButtonBox}>
                 <img src="/common/left_arrow.png"/>
