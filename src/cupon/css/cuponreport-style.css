@@ -2,7 +2,6 @@
 .componentBox{
     padding: 10px;
     width : 100%;
-    background-color: red;
 }
 
 /* 페이지 제목 */
@@ -100,5 +99,10 @@
     padding : 5px;
     width : 5px;
     height : 10px;
+}
+.dateInput{
+    background-color: #ACB7E1;
+    border-radius: 0.5em;
+
 }
 
