@@ -12,12 +12,14 @@
                                                 {"name" : "재고 조회", "src" : "/inventory"},
                                                 {"name" : "검수하기", "src" : "/inspect"}]},
                {"name": "배송관리", "results" : [{"name" : "배송조회", "src" : "/produc"},
-                                                   {"name" : "배송지 목록 조회", "src" : "/produc"}]},
+                                                {"name" : "배송지 목록 조회", "src" : "/produc"}]},
                {"name": "회원관리", "results" : [{"name" : "공지사항 조회/수정", "src" : "/produc"}]},
                {"name": "공지사항 관리", "results" : [{"name" : "공지사항 관리", "src" : "/produc"},
                                                       {"name" : "공지사항 조회/수정", "src" : "/produc"}]},
                {"name": "혜택관리", "results" : [{"name" : "쿠폰등록", "src" : "/cuponregist"},
-                                                      {"name" : "쿠폰리포트", "src" : "/cuponreport"}]}
+                                                {"name" : "쿠폰리포트", "src" : "/cuponreport"},
+                                                {"name" : "포인트지급내역", "src" : "/pointreport"}
+                                                      ]}
                                                    ],
 
    "options" :[{"value" : 1, "name" :"수취인명"},
