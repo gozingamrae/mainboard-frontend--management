@@ -20,7 +20,7 @@ function Warehousing(){
         setSelectType(e.target.id);
     }
     const onClickSubmit = () => {
-        alert(selectType + "의 입고를 완료했습니다.")
+        alert(selectType + "입고를 완료했습니다.")
         nav("/");
     }
 
