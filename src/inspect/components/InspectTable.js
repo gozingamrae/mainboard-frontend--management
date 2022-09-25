@@ -3,14 +3,8 @@ import { NavLink } from "react-router-dom";
 import style from "../css/Inspect.module.css"
 import data from "../data/Inspect.data.json"
 function InspectTable(){
-    const inventorys= [{"sirialNo" : "1", "category":"스플랜더" , "status": "창고" , "등급": "상","대여자" : ""},
-                        {"sirialNo" : "2", "category":"스플랜더" , "status": "대여중" , "등급": "상", "대여자" : "jihi1013"},
-                        {"sirialNo" : "3", "category":"부루마블" , "status": "검수중" , "등급": "상" , "대여자" : ""},
-                        {"sirialNo" : "4", "category":"할리갈리" , "status": "창고" , "등급": "상", "대여자" : ""},
-                        {"sirialNo" : "5", "category":"부루마블" , "status": "창고" , "등급": "상", "대여자" : ""},
-                        {"sirialNo" : "5", "category":"부루마블" , "status": "창고" , "등급": "상", "대여자" : ""},
-                        {"sirialNo" : "5", "category":"부루마블" , "status": "창고" ,  "등급": "상", "대여자" : ""},
-                        {"sirialNo" : "5", "category":"부루마블" , "status": "대여중" , "등급": "상", "대여자" : "jihi1013"}]
+    const inventorys= [
+                        {"sirialNo" : "3", "category":"부루마블" , "status": "검수중" , "등급": "상" , "대여자" : ""}]
 
     return (
         <div className={style.box}>
