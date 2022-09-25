@@ -11,7 +11,7 @@ function Inventory(){
                         {"sirialNo" : "5", "category":"부루마블" , "status": "대여중" , "등급": "상", "대여자" : "jihi1013"}]
 
     return (
-        <div className={style.inventoryBox}>
+        <div className={style.componentBox}>
             <div className={style.title}>
                 재고 조회/수정
             </div>
