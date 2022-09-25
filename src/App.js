@@ -17,6 +17,7 @@ import Common from "./common/Common";
 import Member from "./member/pages/Member";
 import BlackList from "./member/pages/Blacklist";
 import Delivery from "./delivery/pages/Delivery";
+import UpdateInspect from "./inspect/UpdateInspect";
 import "./App.module.css";
 
 function App() {
@@ -34,7 +35,8 @@ function App() {
           <Route path="/pointreport" element={<PointReport/>}/>
           <Route path="/orderreport" element={<OrderReport/>}/>
           <Route path="/inspect" element={<Inspect/>} />
-          <Route path="/member" element={<Member/>} />
+          <Route path="/updateInspect" element={<UpdateInspect/>}/>
+          <Route path="/member" element={<Member/>}/>
           <Route path="/blacklist" element={<BlackList/>} />
           <Route path="/delivery" element={<Delivery/>} />
           <Route path="/*" element={<Error/>} />
