@@ -23,3 +23,27 @@
 .contentsBox{
     height : 10%;
 }
+.deliveryProceedingIcon {
+    background-image: url("../static/images/deliveryCompleted.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 45px;
+    height: 45px;
+    padding : auto;
+  }
+  .deliveryProceedingIcon2{
+    background-image: url("../static/images/deliveryPreparing.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 45px;
+    height: 45px;
+    padding : auto;
+  }
+  .deliveryProceedingIcon3{
+    background-image: url("../static/images/deliveryProceeding.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 45px;
+    height: 45px;
+    padding : auto;
+  }
