@@ -5,7 +5,7 @@ function Inventory(){
     return (
         <div className={style.inventoryBox}>
             <div className={style.title}>
-                재고 조회/수정
+                검수
             </div>
             <div className={style.box}>
                 <div>
