@@ -1,0 +1,184 @@
+/* 컴포넌트 div 스타일 */
+.componentBox {
+  padding: 10px;
+  width: 100%;
+}
+
+/* 페이지 제목 */
+.titleBox {
+  background-color: white;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #7332c3;
+  font-weight: bold;
+}
+.subButton {
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px 10px 3px 10px;
+}
+.clickedSubButton {
+  background-color: white;
+  border: 1px solid #7332c3;
+  color: #7332c3;
+  padding: 3px 10px 3px 10px;
+}
+
+/* 검색 버튼 스타일 */
+.searchButton {
+  background-color: #a086f1;
+  color: white;
+  border: none;
+  padding: 5px;
+  padding: 5px 20px 5px 20px;
+  height: 25px;
+  font-size: 10px;
+  font-weight: 100;
+  margin: auto;
+}
+/* 박스 스타일 */
+.box {
+  margin-top: 10px;
+  background-color: white;
+  padding: 45px;
+  padding-left: 64px;
+  font-size: 15px;
+  border: 1px solid black;
+}
+.box h1 {
+  font-size: 15px;
+}
+.box table {
+  width: 100%;
+  height: 100%;
+  font-weight: 100;
+  border-collapse: collapse;
+}
+.box table th {
+  background-color: #f8f5ff;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  font-weight: 100;
+  font-size: 10px;
+}
+.box table td {
+  border-bottom: 1px solid #cccccc;
+  font-weight: 100;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* 작은 박스 스타일 */
+.subBox {
+  display: flex;
+  padding: 10px;
+}
+
+.borderSubBox {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ebe9f2;
+  border: 1px solid black;
+}
+
+.box h1 {
+  width: 30%;
+  font-size: 10px;
+  font-weight: 100;
+}
+.box div {
+  font-size: 10px;
+  display: flex;
+}
+.box .checkBox label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.box select {
+  font-size: 10px;
+}
+.box img {
+  width: 20px;
+  height: 20px;
+}
+.pageButtonBox {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.pageButtonBox button {
+  /* background-color: #EBE9F2; */
+  background-color: white;
+  border-radius: 100%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  text-align: center;
+  font-size: 6px;
+}
+.pageButtonBox img {
+  padding: 5px;
+  width: 5px;
+  height: 10px;
+}
+
+.calendar {
+  border-radius: 5px;
+  border: none;
+  background-color: #acb7e1;
+  padding: 3px 10px 3px 10px;
+  font-size: 10px;
+  color: black;
+}
+
+.deliveryStateBox {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.deliveryState {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.deliveryPreparingIcon {
+  background-image: url("../../static/images/deliveryPreparing.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 45px;
+  height: 45px;
+}
+
+.deliveryProceedingIcon {
+  background-image: url("../../static/images/deliveryProceeding.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 45px;
+  height: 45px;
+}
+
+.deliveryCompletedIcon {
+  background-image: url("../../static/images/deliveryCompleted.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  width: 45px;
+  height: 45px;
+}
+
+.deliveryStateText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: #000000;
+}
