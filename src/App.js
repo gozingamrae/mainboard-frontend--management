@@ -11,7 +11,6 @@ import CuponRegist from "./cupon/pages/cuponregist";
 import CuponReport from "./cupon/pages/cuponreport";
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
-import Inspect from "./inspect/Inspect";
 import "./App.module.css";
 
 function App() {

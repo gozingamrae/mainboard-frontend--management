@@ -29,7 +29,7 @@ function cuponRegist(){
 
                 <div className="subBox">
                     <h1>쿠폰 조회 기간</h1>
-                    <img src={require ("../images/calender.png")} alt="출력오류"/>
+                    <img src="/common/calender.png" alt="출력오류"/>
                     <input className="dateInput" type="date" value="productDiscount" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp;
                     <input className="dateInput" type="date" value="deliveryFeeDiscount" name="cuponReportTypeRadio"/>
                 </div>
