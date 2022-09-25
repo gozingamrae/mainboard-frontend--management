@@ -59,6 +59,7 @@ a {
     text-align: left;
     font-size: 10px;
     font-weight: bold;
+    cursor:pointer;
 }
 .navButton:after {
     content: "";
@@ -66,6 +67,7 @@ a {
     width: 80%;
     border-bottom: 1px solid #646d7b;
     margin: 0 auto;
+    cursor:pointer;
 }
 .navButton2{
     background-color: #C8B8FB;
