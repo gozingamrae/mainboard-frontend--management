@@ -39,6 +39,7 @@ function cuponRegist(){
                 <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp;
                 <button className="searchButton">완료</button>
 
+
                 </div>
 
             </div>

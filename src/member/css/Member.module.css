@@ -1,0 +1,219 @@
+/* 컴포넌트 div 스타일 */
+.componentBox{
+    padding: 10px;
+    width : 100%;
+}
+
+/* 페이지 제목 */
+.titleBox{
+    background-color : white;
+    padding : 10px;
+    font-size: 20px;
+    border : 1px solid #7332C3;
+    font-weight: bold;
+}
+
+/* 검색 버튼 스타일 */
+.detailButton{
+    background-color: #A086F1;
+    color : white;
+    border : none;
+    padding : 5px;
+    padding : 5px 20px 5px 20px;
+    height: 25px;
+    font-size: 10px;
+    font-weight: 100;
+    margin: auto;
+}
+
+/* 박스 스타일 */
+.box{
+    margin-top : 10px;
+    background-color: #FFFFFF;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid black;
+}
+.point{
+    background-color: #F8F5FF !important;
+}
+
+
+
+.box h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+}
+
+.box > h1 {
+    padding: 10px;
+}
+
+.box table{
+    width : 100%;
+    height: 100%;
+    font-weight : 100;
+    border-collapse: collapse;
+}
+.box table th{
+    background-color: #F8F5FF;
+    border-top : 0.5px solid black;
+    border-bottom : 0.5px solid black;
+    font-weight: 500;
+    font-size:13px;
+}
+.box table td{
+    border-bottom : 1px solid #CCCCCC;
+    font-weight: 500;
+    font-size:13px;
+    text-align: center;
+    color: #000000;
+    
+}
+
+/* 작은 박스 스타일 */
+.subBox{
+    display : flex;
+    padding : 10px;
+}
+.subBox h1{
+    width: 100px;
+
+    font-family: 'Gmarket Sans TTF';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    
+    color: #000000;
+    
+}
+.subBox div{
+    font-size : 10px;
+    display : flex;
+}
+.subBox .checkBox label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.subBox select{
+    font-size : 10px;
+}
+.pageButtonBox{
+    display : flex;
+    padding : 10px;
+    justify-content: center;
+}
+
+.pageButtonBox button{
+    /* background-color: #EBE9F2; */
+    background-color: white;
+    border-radius: 100%;
+    border: none;
+    width : 20px;
+    height: 20px;
+    padding : 5px;
+    text-align: center;
+    font-size: 6px;
+}
+.pageButtonBox img{
+    padding : 5px;
+    width : 5px;
+    height : 10px;
+}
+
+/* 라디오 박스 */
+
+.radiobox{
+    width: 30px;
+    height: 30px;
+}
+
+label{
+    box-sizing: border-box;
+
+    width: 50px;
+    height: 30px;
+    /* 흰색 */
+    background: #FFFFFF;
+    border: 1px solid #000000;
+
+    margin-left: 8px;
+    margin-right: 16px;
+
+    font-family: 'Gmarket Sans TTF';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+
+    color: #000000;
+}
+
+input[type="text"]{
+    box-sizing: border-box;
+
+    width: 160px;
+    height: 30px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.buttonsbox{
+    text-align: center;
+}
+
+.searchButtonAll, .searchButton{
+    box-sizing: border-box;
+    width: 80px;
+    height: 40px;
+
+    background: #7332C3;
+
+    border: 1px solid #FFFFFF; 
+
+    width: 80px;
+    height: 40px;
+
+    font-family: 'Gmarket Sans TTF';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.searchButton{
+    background: #A086F1 !important;
+    margin-left: 32px;
+}
+
+/*블랙리스트 관리*/
+
+.blacklistReason{
+    box-sizing: border-box;
+
+    width: 613px !important;
+    height: 115px !important;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+/* 회원 상세 정보 테이블 */
+
+.tableBox{
+    padding: 47px 300px 47px 300px;
+}
