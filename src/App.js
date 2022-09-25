@@ -10,6 +10,8 @@ import AddProduct from "./product/AddProduct";
 import CuponRegist from "./cupon/pages/cuponregist";
 import CuponReport from "./cupon/pages/cuponreport";
 import PointReport from "./point/pages/pointreport";
+import OrderReport from "./order/pages/orderreport";
+
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
 import Member from "./member/pages/Member";
@@ -29,6 +31,7 @@ function App() {
           <Route path="/cuponregist" element={<CuponRegist/>}/>
           <Route path="/cuponreport" element={<CuponReport/>} />
           <Route path="/pointreport" element={<PointReport/>}/>
+          <Route path="/orderreport" element={<OrderReport/>}/>
           <Route path="/inspect" element={<Inspect/>} />
           <Route path="/member" element={<Member/>} />
           <Route path="/blacklist" element={<BlackList/>} />
