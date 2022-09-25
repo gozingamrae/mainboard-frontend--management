@@ -1,0 +1,313 @@
+/* 컴포넌트 div 스타일 */
+.componentBox {
+  padding: 10px;
+  width: 100%;
+}
+
+/* 페이지 제목 */
+.titleBox {
+  background-color: white;
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #7332c3;
+  font-weight: bold;
+}
+.subButton {
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px 10px 3px 10px;
+}
+.clickedSubButton {
+  background-color: white;
+  border: 1px solid #7332c3;
+  color: #7332c3;
+  padding: 3px 10px 3px 10px;
+}
+
+/* 검색 버튼 스타일 */
+.searchButton {
+  background-color: #a086f1;
+  color: white;
+  border: none;
+  padding: 5px;
+  padding: 5px 20px 5px 20px;
+  height: 25px;
+  font-size: 10px;
+  font-weight: 100;
+  margin: auto;
+}
+/* 박스 스타일 */
+.box {
+  margin-top: 10px;
+  background-color: #f8f5ff;
+  padding: 10px;
+  font-size: 15px;
+  border: 1px solid black;
+}
+
+.box table {
+  width: 100%;
+  height: 100%;
+  font-weight: 100;
+  border-collapse: collapse;
+}
+.box table th {
+  background-color: #f8f5ff;
+  border-top: 0.5px solid black;
+  border-bottom: 0.5px solid black;
+  font-weight: 100;
+  font-size: 10px;
+}
+.box table td {
+  border-bottom: 1px solid #cccccc;
+  font-weight: 100;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* 작은 박스 스타일 */
+.subBox {
+  display: flex;
+  padding: 10px;
+}
+
+.borderSubBox {
+  display: flex;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ebe9f2;
+  border: 1px solid black;
+}
+
+.box h1 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+
+  color: #000000;
+}
+
+.box div {
+  font-size: 10px;
+  display: flex;
+}
+.box .checkBox label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-left: 10px;
+  margin-right: 10px;
+
+  font-size: 13px;
+}
+
+.checkBoxContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 400px;
+  gap: 32px;
+
+  margin-top: 24px;
+}
+
+.checkBox input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+}
+
+.box select {
+  font-size: 10px;
+}
+.box img {
+  width: 20px;
+  height: 20px;
+}
+.pageButtonBox {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.pageButtonBox button {
+  /* background-color: #EBE9F2; */
+  background-color: white;
+  border-radius: 100%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 5px;
+  text-align: center;
+  font-size: 6px;
+}
+.pageButtonBox img {
+  padding: 5px;
+  width: 5px;
+  height: 10px;
+}
+
+.calendar {
+  text-align: center;
+
+  border-radius: 5px;
+  border: none;
+  background-color: #acb7e1;
+  font-size: 13px;
+  color: black;
+
+  width: 110px;
+  height: 20px;
+
+  margin-right: 12px;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.calendarIcon {
+  background-image: url("/public/common/calendar.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 8px;
+  margin-left: 12px;
+
+  width: 30px;
+  height: 30px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+
+  margin-left: 50px;
+}
+
+.intervalLabel {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-top: 8.5px;
+}
+
+.intervalStandard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+
+  border: 1px solid #000000;
+  margin-right: 33px;
+  padding-left: 6px;
+
+  font-size: 13px;
+
+  width: 160px;
+  height: 30px;
+}
+
+.intervalSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+
+  margin-right: 33px;
+  margin-left: -4px;
+
+  font-size: 13px;
+
+  width: 300px;
+  height: 30px;
+}
+
+.intervalButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #ffffff;
+
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  margin: -1px;
+
+  font-size: 13px;
+
+  width: 60px;
+  height: 30px;
+}
+
+.calendarBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intervalLine2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.idLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-left: 10px;
+  margin-right: -5px;
+}
+
+.idInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid #000000;
+  box-sizing: border-box;
+
+  width: 160px;
+  height: 30px;
+
+  font-size: 13px;
+
+  padding-left: 8px;
+  margin: 0px;
+}
+
+.idBox {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+
+  margin-top: 8px;
+}
+
+.title {
+  width: 150px;
+  height: 30px;
+
+  font-weight: bold;
+  font-size: 20px;
+
+  padding: 9px;
+}
+
+.align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+}
