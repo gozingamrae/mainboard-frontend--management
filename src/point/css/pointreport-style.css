@@ -2,7 +2,6 @@
 .componentBox{
     padding: 10px;
     width : 100%;
-    
 }
 
 /* 페이지 제목 */
@@ -24,6 +23,7 @@
     height: 25px;
     font-size: 15px;
     font-weight: 100;
+    margin: auto;
 }
 
 /* 박스 스타일 */
@@ -32,7 +32,6 @@
     background-color: white;
     padding : 10px;
     font-size: 15px;
-
 
 }
 .box h1{
