@@ -1,14 +1,14 @@
-import style from "../css/cuponreport-style.css";
+import "../css/pointreport-style.css";
 
 function SearchBox(){
     return (
-        <div className={style.box}>
+        <div className="box">
             <h1>박스 제목</h1>
-            <div className={style.subBox}>
+            <div className="subBox">
                 <h1>작은 박스 제목</h1>
                 <div>컨텐츠</div>
             </div>
-            <div className={style.subBox}>
+            <div className="subBox">
                 <h1>SELECT</h1>
                 <div>
                     <select>
@@ -17,47 +17,47 @@ function SearchBox(){
                     </select>
                 </div>
             </div>
-            <div className={style.subBox}>
+            <div className="subBox">
                 <h1>체크박스</h1>
                 <div> 
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>1번</label>
                     </div>
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>2번</label>
                     </div>
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>3번</label>
                     </div>
                 </div>
             </div>
-            <div className={style.subBox}>
+            <div className="subBox">
                 <div> 
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>1번</label>
                     </div>
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>2번</label>
                     </div>
-                    <div className={style.checkBox}>
+                    <div className="checkBox">
                         <input type="checkBox"/>
                         <label>3번</label>
                     </div>
                 </div>
             </div>
-            <div className={style.subBox}>
+            <div className="subBox">
                 <h1>input text</h1>
                 <div>
                     <input type="text"/>
                 </div>
             </div>
             <div>
-                <button className={style.searchButton}>검색버튼</button>
+                <button className="searchButton">검색버튼</button>
             </div>
         </div>
     )
