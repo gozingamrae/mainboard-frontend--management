@@ -72,6 +72,8 @@
 .subBox{
     display : flex;
     padding : 10px;
+    justify-content: left;
+    align-items: center;
 }
 
 .borderSubBox{
@@ -81,17 +83,19 @@
     background-color: #EBE9F2 ;
     border : 1px solid black;
 }
-
-.box h1{
-    width : 30%;
+.space{
+    margin : 0px 10px 0px 10px;
+}
+.subBox h1{
+    width : 15%;
     font-size : 10px;
     font-weight: 100;
 }
-.box div{
+.subBox div{
     font-size : 10px;
     display : flex;
 }
-.box .checkBox label{
+.subBox .checkBox label{
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -133,6 +137,4 @@
     font-size : 10px;
     color : black;
 }
-input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit-appearance: hidden; appearance: hidden; }
-
-
+input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; appearance: none; }
