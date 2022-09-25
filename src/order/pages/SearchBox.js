@@ -1,4 +1,4 @@
-import "../css/cuponreport-style.css";
+import "../css/orderreport-style.css";
 
 function SearchBox(){
     return (

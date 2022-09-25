@@ -1,14 +1,13 @@
-import SearchBox from "./SearchBox"
-import CuponRegistTable from "./cuponreportTable"
+import "./SearchBox"
+import CuponRegistTable from "./cuponregistTable.js";
 import "../css/cuponreport-style.css"
 
-//스타일 예시
 function cuponRegist(){
     return (
         <div className="componentBox">
             <div className="box">쿠폰리포트</div>
 
-            <div className="box">
+            <div className="box" style={{backgroundColor: "#F8F5FF"}}>
                 <div className="subBox">
                 <h1>쿠폰이름</h1>
                 <input type="text" />
@@ -29,12 +28,27 @@ function cuponRegist(){
 
                 <div className="subBox">
                     <h1>쿠폰 조회 기간</h1>
-                    <img src="/common/calender.png" alt="출력오류"/>
+
                     <input className="dateInput" type="date" value="productDiscount" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp;
-                    <input className="dateInput" type="date" value="deliveryFeeDiscount" name="cuponReportTypeRadio"/>
+
+                    <img src="/common/calendar.png" alt="ERROR" />
+                    <input className="dateInput" type="date" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp;
+                    <img src="/common/calendar.png" alt="ERROR" />
+                    <input className="dateInput" type="date" name="cuponReportTypeRadio"/>
+
                 </div>
 
-                
+                <div className="subBox" style={{justifyContent: "center"}}>
+                <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp;
+                <button className="searchButton">완료</button>
+
+
+                </div>
+
+            </div>
+
+            <div className="box">
+                <CuponRegistTable/>
             </div>
 
 

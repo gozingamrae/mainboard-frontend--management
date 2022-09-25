@@ -1,6 +1,7 @@
-import "../css/cuponreport-style.css";
+import "../css/orderreport-style.css";
 
-function cuponReportTable(){
+
+function orderReportTable(){
     return(
         <div className="box">
             <table>
@@ -28,4 +29,4 @@ function cuponReportTable(){
 
 
 }
-export default cuponReportTable;
+export default orderReportTable;
