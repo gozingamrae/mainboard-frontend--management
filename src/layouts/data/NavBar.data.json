@@ -18,8 +18,7 @@
                {"name": "공지사항 관리", "results" : [{"name" : "공지사항 관리", "src" : "/produc"},
                                                       {"name" : "공지사항 조회/수정", "src" : "/produc"}]},
                {"name": "혜택관리", "results" : [{"name" : "쿠폰등록", "src" : "/cuponregist"},
-                                                      {"name" : "포인트", "src" : "/produc"}]}
-
+                                                      {"name" : "쿠폰리포트", "src" : "/cuponreport"}]}
                                                    ],
 
    "options" :[{"value" : 1, "name" :"수취인명"},
