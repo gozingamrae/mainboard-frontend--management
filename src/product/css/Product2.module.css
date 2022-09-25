@@ -145,3 +145,7 @@
     color : black;
 }
 input[type="date"]::-webkit-calendar-picker-indicator { display: none; -webkit-appearance: none; appearance: none; }
+
+.sliderBox{
+    width : 300px;
+}
