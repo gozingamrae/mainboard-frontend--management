@@ -2,6 +2,11 @@ import { useState } from "react";
 import style from "./Common.module.css";
 
 function CommonTable(){
+     const [focusData, setFocusData]  = useState({"subButton" : 0 , "pageNum" : 1});
+    
+    const onClickButton = (e) => {
+        setFocusData({ ...focusData, "subButton" : e.target.id});
+    }
     const [pageNum , setPageNum] = useState();
     
     const clickButton = (e) => {

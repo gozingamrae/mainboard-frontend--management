@@ -132,6 +132,45 @@
     padding : 3px 10px 3px 10px;
     font-size : 10px;
     color : black;
+    padding: 10px;
+    width : 100%;
+}
+.halfBox{
+    display: flex;
+    flex-wrap: wrap;
+    width : 100%;
+    justify-content: space-between;
+}
+.halfBox > div{
+    width : 48%;
+    height: 150px;
+    background-color: white;
+    margin-top : 10px;
+    background-color: white;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid #AAAAAA;
+}
+.halfBox > div p{
+    font-size: 15px;
+    padding: 3px;
+}
+.halfBox > div .result{
+    font-size: 15px;
+    color: #7332C3;
+    font-weight: bold;
+}
+.box2{
+    margin-top : 10px;
+    background-color: white;
+    padding : 10px;
+    font-size: 15px;
+    border : 1px solid #AAAAAA;
+}
+.box2 h1, .halfBox h1{
+    font-size: 20px;
+    font-weight: 500;
+    border-bottom: 1px solid #AAAAAA;
 }
 input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit-appearance: hidden; appearance: hidden; }
 
