@@ -16,6 +16,7 @@ import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
 import Member from "./member/pages/Member";
 import BlackList from "./member/pages/Blacklist";
+import Delivery from "./delivery/pages/Delivery";
 import "./App.module.css";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/inspect" element={<Inspect/>} />
           <Route path="/member" element={<Member/>} />
           <Route path="/blacklist" element={<BlackList/>} />
+          <Route path="/delivery" element={<Delivery/>} />
           <Route path="/*" element={<Error/>} />
         </Route>
       </Routes>
