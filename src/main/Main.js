@@ -132,13 +132,11 @@ function Main() {
             <h1>리뷰</h1>
             <p>최근 작성된 리뷰: <span className={style2.result}>1건</span></p> 
             <p>평점 낮은 리뷰 : <span className={style2.result}> 2건</span></p>
-            <p>이벤트 : <span className={style2.result}> 1건</span></p>
          </div>
          <div>
-            <h1>쿠폰</h1>
-            <p>최근 작성된 리뷰: <span className={style2.result}>1건</span></p> 
-            <p>평점 낮은 리뷰 : <span className={style2.result}> 2건</span></p>
-            <p>이벤트 : <span className={style2.result}> 1건</span></p>
+            <h1>혜택</h1>
+            <p>진행중인 쿠폰: <span className={style2.result}>1건</span></p> 
+            <p>보유 포인트 : <span className={style2.result}> 5,000P</span></p>
          </div>
       </div>
     </div>
