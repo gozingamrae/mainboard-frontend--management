@@ -12,21 +12,25 @@ import CuponReport from "./cupon/pages/cuponreport";
 import Inspect from "./inspect/Inspect";
 import Common from "./common/Common";
 import "./App.module.css";
+import Delivery from "./delivery/pages/Delivery";
+import DeliveryTest from "./delivery/pages/DeliveryTest";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Common/>} />
-          <Route path="/inventory" element={<Inventory/>} />
-          <Route path="/warehousing" element={<Warehousing/>} />
-          <Route path="/product" element={<Product/>} />
-          <Route path="/addproduct" element={<AddProduct/>} />
-          <Route path="/cuponregist" element={<CuponRegist/>}/>
-          <Route path="/cuponreport" element={<CuponReport/>} />
-          <Route path="/inspect" element={<Inspect/>} />
-          <Route path="/*" element={<Error/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Common />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/warehousing" element={<Warehousing />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/addproduct" element={<AddProduct />} />
+          <Route path="/cuponregist" element={<CuponRegist />} />
+          <Route path="/cuponreport" element={<CuponReport />} />
+          <Route path="/delivery" element={<Delivery />} />
+          <Route path="/delivery-test" element={<DeliveryTest />} />
+          <Route path="/inspect" element={<Inspect />} />
+          <Route path="/*" element={<Error />} />
         </Route>
       </Routes>
     </BrowserRouter>
