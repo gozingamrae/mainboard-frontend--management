@@ -86,7 +86,7 @@ function SearchBox(){
             <div className={style.box}>
                 <h1>대여료</h1>
                 <div className={style.subBox}>
-                    <h1>기본 대여료</h1>
+                    <h1>기본 대여료(일)</h1>
                     <input type="number" min="0" onChange={onChangePrice}/>
                 </div>
                 <div className={style.subBox}>

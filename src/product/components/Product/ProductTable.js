@@ -18,7 +18,7 @@ function ProductTable(){
                         <tr><th><input type="checkbox"/></th>
                         <th  style={{width : "5%"}}>상품번호</th>
                         <th>상품명</th>
-                        <th>기본 대여료</th>
+                        <th>기본 대여료(일)</th>
                         <th>브랜드</th>
                         <th>제조사</th>
                         <th>카테고리</th>
@@ -27,7 +27,7 @@ function ProductTable(){
                         <th style={{width : "5%"}}>옵션보기</th></tr>
                         {/* 테이블 값 출력 */}
                         {products.map((product, index)=>(
-                            focusGame == index? 
+                            focusGame == index?
                                 <tr style={{backgroundColor : "#DDDDDD"}}><td><input type="checkbox"/></td>
                                     <td>{product.상품코드}</td>
                                     <td>{product.상품명}</td>
