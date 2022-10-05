@@ -172,6 +172,6 @@
     font-weight: 500;
     border-bottom: 1px solid #AAAAAA;
 }
-input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit-appearance: hidden; appearance: hidden; }
+/* input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit-appearance: hidden; appearance: hidden; } */
 
 
