@@ -68,6 +68,12 @@
     text-align: center;
 }
 
+.box input[type="number"]{
+    border: 1px solid black;
+    font-size: 13px;
+    width : 10%;
+    height : 16px;
+}
 /* 작은 박스 스타일 */
 .subBox{
     display : flex;
@@ -100,14 +106,12 @@
     margin-right: 10px;
 }
 .box select{
-    font-size : 10px;
+    font-size : 15px;
+
 }
 .box img{
     width : 20px;
     height: 20px;;
-}
-.box input[type="number"]{
-    font-size :10px;
 }
 .pageButtonBox{
     display : flex;
