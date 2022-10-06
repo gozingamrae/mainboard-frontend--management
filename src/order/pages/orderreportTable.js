@@ -38,6 +38,7 @@ function OrderReportTable() {
                     </tr>
                     )
                 })}
+
             </table>
             <div className="pageButtonBox">
                 <img src="/common/left_arrow.png"/>
