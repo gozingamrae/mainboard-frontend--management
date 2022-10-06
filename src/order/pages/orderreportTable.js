@@ -1,17 +1,43 @@
 import "../css/orderreport-style.css";
 
+import { useEffect, useState } from 'react';
+import { callGetOrderListAPI } from '../../apis/OrderAPICalls';
+import { useSelector, useDispatch } from 'react-redux';
+import { GET_ORDERLIST } from "../../modules/orderModules/orderModule";
 
-function orderReportTable(){
-    return(
+function OrderReportTable() {
+
+    const orderList = useSelector(state => state.orderReducer);
+    const dispatch = useDispatch();
+    
+    useEffect(
+        ()=>
+        {
+             dispatch(callGetOrderListAPI());
+        },
+        []
+    );
+
+    console.log("orderList : " , orderList)
+
+
+    return orderList && (
         <div className="box">
             <table>
-                <tr><th>칼럼1</th><th>칼럼2</th><th>칼럼3</th><th>칼럼4</th><th>칼럼5</th><th>칼럼6</th></tr>
-                <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
-                <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
-                <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
-                <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
-                <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
-
+                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>결제여부</th></tr>
+                <tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
+                {orderList.map(order => {
+                    return (
+                    <tr>
+                        <td>{order.orderCode}</td>
+                        <td>{order.orderAmount}</td>
+                        <td>{order.couponUsedAmount}</td>
+                        <td>{order.pointsUsedAmount}</td>
+                        <td>{order.orderDate}</td>
+                        <td>{order.whetherPay}</td>
+                    </tr>
+                    )
+                })}
             </table>
             <div className="pageButtonBox">
                 <img src="/common/left_arrow.png"/>
@@ -27,6 +53,5 @@ function orderReportTable(){
         </div>
     )
 
-
 }
-export default orderReportTable;
+export default OrderReportTable;
