@@ -1,3 +1,4 @@
+import { useState } from "react";
 import style from "../../css/Product2.module.css"
 import Slider from "./slider";
 
