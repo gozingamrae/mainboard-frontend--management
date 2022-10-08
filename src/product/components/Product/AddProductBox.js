@@ -112,6 +112,14 @@ function SearchBox(){
                         ))}
                     </table>
                 </div>
+                <div className={style.borderSubBox}>
+                    <table>
+                        <tr><th>번호</th><th>등급</th><th>등급별 할인률</th></tr>
+                        <tr><td>1</td><td>최상</td><td><input type="number"/></td></tr>
+                        <tr><td>1</td><td>상</td><td><input type="number"/></td></tr>
+                        <tr><td>1</td><td>중</td><td><input type="number"/></td></tr>
+                    </table>
+                </div>
                 <div className={style.subBox}>
                     <h1>대여기간</h1>
                     <input type="number" min="0" id="period"/><div>일이하</div>
