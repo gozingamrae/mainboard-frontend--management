@@ -25,6 +25,8 @@
     font-size: 15px;
     font-weight: 100;
     margin: auto;
+
+    cursor: pointer;
 }
 
 /* 박스 스타일 */
@@ -107,17 +109,30 @@
 .dateInput{
     background-color: #ACB7E1;
     border-radius: 0.5em;
+    
 }
 
 .subButton{
     background-color: white;
     border : 1px solid black;
     padding : 3px 10px 3px 10px;
+    cursor: pointer;
 }
 .clickedSubButton{
+    cursor: pointer;
     background-color: white;
     border : 1px solid #7332C3;
     color : #7332C3;
     padding : 3px 10px 3px 10px;
+
+
 }
 
+/* input[type="date"]::-webkit-calendar-picker-indicator { display:hidden; -webkit-appearance: hidden; appearance: hidden; } */
+
+
+
+input[type='date']:focus::before,
+input[type='date']:valid::before {
+  display: none;
+}
