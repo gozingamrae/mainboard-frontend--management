@@ -1,16 +1,43 @@
 import "../css/orderreport-style.css";
 
+import { useEffect, useState } from 'react';
+import { callGetOrderListAPI } from '../../apis/OrderAPICalls';
+import { useSelector, useDispatch } from 'react-redux';
+import { GET_ORDERLIST } from "../../modules/orderModules/orderModule";
 
-function orderReportTable(){
-    return(
+function OrderReportTable() {
+
+    const orderList = useSelector(state => state.orderReducer);
+    const dispatch = useDispatch();
+    
+    useEffect(
+        ()=>
+        {
+             dispatch(callGetOrderListAPI());
+        },
+        []
+    );
+
+    console.log("orderList : " , orderList)
+
+
+    return orderList && (
         <div className="box">
             <table>
-                <tr><th>주문번호</th><th>주문 일자</th><th>대여자명</th><th>결제 상태</th><th>결제일자</th><th>금액</th><th>상세보기</th></tr>
-                <tr><td>1</td><td>2022.02.02</td><td>박지희</td><td>결제완료</td><td>2022.02.03</td><td>5</td><td>상세보기</td></tr>
-                <tr><td>2</td><td>2022.02.02</td><td>권용희</td><td>결제완료</td><td>2022.02.03</td><td>6</td><td>상세보기</td></tr>
-                <tr><td>3</td><td>2022.02.05</td><td>이유리</td><td>결제미완료</td><td>결제미완료</td><td>1</td><td>상세보기</td></tr>
-                <tr><td>4</td><td>2022.02.12</td><td>조동후</td><td>배송 중</td><td>2022.02.15</td><td>2</td><td>상세보기</td></tr>
-                <tr><td>5</td><td>2022.02.16</td><td>손준형</td><td>결제완료</td><td>2022.02.20</td><td>3</td><td>상세보기</td></tr>
+                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>결제여부</th></tr>
+                <tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
+                {orderList.map(order => {
+                    return (
+                    <tr>
+                        <td>{order.orderCode}</td>
+                        <td>{order.orderAmount}</td>
+                        <td>{order.couponUsedAmount}</td>
+                        <td>{order.pointsUsedAmount}</td>
+                        <td>{order.orderDate}</td>
+                        <td>{order.whetherPay}</td>
+                    </tr>
+                    )
+                })}
 
             </table>
             <div className="pageButtonBox">
@@ -27,6 +54,5 @@ function orderReportTable(){
         </div>
     )
 
-
 }
-export default orderReportTable;
+export default OrderReportTable;

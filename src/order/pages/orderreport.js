@@ -1,9 +1,9 @@
-import SearchBox from "./SearchBox"
+
 import OrderReportTable from "./orderreportTable"
 import "../css/orderreport-style.css"
 
 //스타일 예시
-function cuponRegist(){
+function OrderReport(){
     return (
         <div className="componentBox">
             <div className="box">주문조회</div>
@@ -42,4 +42,4 @@ function cuponRegist(){
     )
 }
 
-export default cuponRegist;
+export default OrderReport;

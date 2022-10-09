@@ -18,6 +18,8 @@ import Member from "./member/pages/Member";
 import BlackList from "./member/pages/Blacklist";
 import Delivery from "./delivery/pages/Delivery";
 import UpdateInspect from "./inspect/UpdateInspect";
+import Notice from "./community/pages/Notice";
+import AddNotice from "./community/pages/AddNotice";
 import "./App.module.css";
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<Main/>} />
+          <Route path="/addNotice" element={<AddNotice/>} />
+          <Route path="/notice" element={<Notice/>} />
           <Route path="/inventory" element={<Inventory/>} />
           <Route path="/warehousing" element={<Warehousing/>} />
           <Route path="/product" element={<Product/>} />
