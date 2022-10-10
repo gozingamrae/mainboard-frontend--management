@@ -1,41 +1,49 @@
 import { useState } from "react";
 import "../css/cuponregist-style.css";
-import CuponRegistTable from "./cuponregistTable";
-import { callInsertCuponAPI } from "../../apis/CuponAPICalls";
+// import CuponRegistTable from "./cuponregistTable";
+import { callInsertCuponAPI } from "../apis/CuponAPICalls";
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useNavigate } from "react-router-dom";
 
 
 
 function CuponRegist(){
 
     const dispatch = useDispatch();
+    const nav = useNavigate();
 
     const [focusData, setFocusData]  = useState({"subButton" : 0 , "pageNum" : 1});
     const [focusDataA, setFocusDataA]  = useState({"subButton" : 0 , "pageNum" : 1});
     const [focusDataB, setFocusDataB]  = useState({"subButton" : 0 , "pageNum" : 1});
 
-    const [isChecked, setisChecked] =  useState(false);
+    // const [isChecked, setisChecked] =  useState(false);
 
-    const onClickButton = (e) => {
-        setFocusData({ ...focusData, "subButton" : e.target.id});
-    }
+    // const onClickButton = (e) => {
+    //     setFocusData({ ...focusData, "subButton" : e.target.id});
+    // }
 
-    const onClickButtonA = (e) => {
-        setFocusDataA({ ...focusDataA, "subButton" : e.target.id});
-    }
+    // const onClickButtonA = (e) => {
+    //     setFocusDataA({ ...focusDataA, "subButton" : e.target.id});
+    // }
 
-    const onClickButtonB = (e) => {
-        setFocusDataB({ ...focusDataB, "subButton" : e.target.id});
-    }
+    // const onClickButtonB = (e) => {
+    //     setFocusDataB({ ...focusDataB, "subButton" : e.target.id});
+    // }
 
     const onClickHandler = (e) => {
-        console.log("쿠폰등록 : " , document.getElementById('cuponName').value);
-        // console.log("지급대상 : ", document.querySelector('input[id="client"]:checked').value);
+        console.log("쿠폰이름 : " , document.getElementById('cuponName').value);
+        console.log("지급대상 : ", document.querySelector('input[id="client"]:checked').value);
         console.log("쿠폰설명 : ", document.getElementById('cuponExplain').value);
         console.log("할인비율 : ", document.getElementById('discountRate').value);
         console.log("최소 주문 금액 : ", document.getElementById('minOrder').value);
-        dispatch(callInsertCuponAPI());
+        console.log("유효 기간 : ", document.getElementById('limitDate').value);
+        dispatch(callInsertCuponAPI(document.getElementById('cuponName').value, document.querySelector('input[id="client"]:checked').value,
+        document.getElementById('cuponExplain').value, document.getElementById('discountRate').value
+        , document.getElementById('minOrder').value, document.getElementById('limitDate').value
+        ));
+
+        alert("쿠폰 등록이 완료되었습니다.");
+        // nav("/cuponreport");
     }
 
     // const onClickclient = (e) => {
@@ -56,13 +64,13 @@ function CuponRegist(){
                 <input id="cuponName" type="text" />
                 </div>
 
-                {/* <div className="subBox">
+                <div className="subBox">
                     <h1>지급 대상</h1>
-                    <input id="client" type="radio" value="all" name="cuponReportRadio" onClick={onClickclient}/> 전체고객 &nbsp;&nbsp;&nbsp;
-                    <input id="client" type="radio" value="first" name="cuponReportRadio" onClick={onClickclient}/> 첫구매고객 &nbsp;&nbsp;&nbsp;
-                    <input id="client" type="radio" value="again" name="cuponReportRadio" onClick={onClickclient}/> 재구매고객 &nbsp;&nbsp;&nbsp;
+                    <input id="client" type="radio" value="ALL" name="cuponReportRadio" /> 전체고객 &nbsp;&nbsp;&nbsp;
+                    <input id="client" type="radio" value="FIRST" name="cuponReportRadio" /> 첫구매고객 &nbsp;&nbsp;&nbsp;
+                    {/* <input id="client" type="radio" value="again" name="cuponReportRadio" onClick={onClickclient}/> 재구매고객 &nbsp;&nbsp;&nbsp; */}
                 </div>
-                {isChecked?
+                {/* {isChecked?
                 <div className="subBox"  style={{backgroundColor: "#EBE9F2"}}>
                     <h1>재구매 고객 조건</h1>
                     <div>
@@ -134,20 +142,20 @@ function CuponRegist(){
                     {/* <img src="/common/calendar.png" alt="제발돼라" />
                     <input className="dateInput" type="date" name="cuponReportTypeRadio"/>  &nbsp; ~ &nbsp; */}
                     <img src="/common/calendar.png" alt="제발돼라" />
-                    <input className="dateInput" type="date" name="cuponReportTypeRadio"/>
+                    <input id="limitDate" className="dateInput" type="date" name="cuponReportTypeRadio"/>
 
                     
                 </div>
 
                 <div className="subBox" style={{justifyContent: "center"}}>
-                <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp;
+                {/* <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp; */}
                 <button className="searchButton" onClick={onClickHandler}>완료</button>
                 </div>
             </div>
 
-            <div className="box">
+            {/* <div className="box">
                 <CuponRegistTable/>
-            </div>
+            </div> */}
 
 
         </div>

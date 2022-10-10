@@ -109,7 +109,8 @@
 .dateInput{
     background-color: #ACB7E1;
     border-radius: 0.5em;
-    
+
+    cursor: pointer;
 }
 
 .subButton{
@@ -132,7 +133,7 @@
 
 
 
-input[type='date']:focus::before,
+/* input[type='date']:focus::before,
 input[type='date']:valid::before {
-  display: none;
-}
+  display:inline;
+} */
