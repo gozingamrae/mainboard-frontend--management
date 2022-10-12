@@ -4,7 +4,7 @@ function cuponRegistTable(){
     return(
         <div className="box">
             <table>
-                <tr><th>칼럼1</th><th>칼럼2</th><th>칼럼3</th><th>칼럼4</th><th>칼럼5</th><th>칼럼6</th></tr>
+                <tr><th>쿠폰코드</th><th>쿠폰이름</th><th>지급대상</th><th></th><th>할인률</th><th>최소 주문 금액</th></tr>
                 <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
                 <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>
                 <tr><td>값1</td><td>값2</td><td>값3</td><td>값4</td><td>값5</td><td>값6</td></tr>

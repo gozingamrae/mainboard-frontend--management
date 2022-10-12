@@ -165,11 +165,11 @@
 
   margin-right: 12px;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
   appearance: none;
-}
+} */
 
 .calendarIcon {
   background-image: url("/public/common/calendar.png");

@@ -8,7 +8,7 @@ export function callGetOrderListAPI(){
 
         const results = await fetch(requestURL).then(res=> res.json());
 
-        console.log("? ? ? 과연 ? ? ? results : " , results.data);
+        console.log("? ? ? 과연 ? ? ? results : " , results);
 
         dispatch({type: GET_ORDERLIST, payload: results.data});
         
