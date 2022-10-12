@@ -13,14 +13,12 @@ function OrderReport(){
 
     const result = useSelector(state => state.orderSearchReducer);
 
-    console.log(result);
-
     const dispatch = useDispatch();
 
     const onOptionChangeHandler = (e) => {
         dispatch({ type: SEARCH_OPTION, payload: e.target.value });
     }
-    
+
     const onChangeHandler = (e) => {
         dispatch({ type: SEARCH_TEXT, payload: e.target.value});
     }
@@ -53,20 +51,16 @@ function OrderReport(){
                         <option value="orderId" id="orderId">주문번호</option>
                         <option value="productName" id="productName">상품명</option>
                     </select> &nbsp;
-                    
 
                     </div>
                     <div className="subBox" style={{justifyContent: "center"}}>
                     <button className="searchButton" style={{backgroundColor: "#EBE9F9", color: "gray"}}>초기화</button> &nbsp; &nbsp;
                     <button className="searchButton" onClick={onClickHandler}>검색</button>
                     </div>
-
                 </div>
-
                 <div className="box">
                     <OrderReportTable/>
                 </div>
-
         </div>
     )
 }
