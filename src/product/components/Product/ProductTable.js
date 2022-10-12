@@ -1,8 +1,8 @@
 import { useState , useEffect} from "react";
-import style from "../../css/Product2.module.css";
 import {useSelector, useDispatch} from "react-redux";
-
 import { useNavigate } from "react-router-dom";
+import style from "../../css/Product2.module.css";
+
 import {callProductListAPI,
     callSearchProductListAPI 
 } from "../../../apis/ProductAPICalls";
