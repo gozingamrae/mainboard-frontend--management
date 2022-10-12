@@ -20,6 +20,7 @@ import Delivery from "./delivery/pages/Delivery";
 import UpdateInspect from "./inspect/UpdateInspect";
 import Notice from "./community/pages/Notice";
 import AddNotice from "./community/pages/AddNotice";
+import DetailProduct from "./product/DetailProduct";
 import "./App.module.css";
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/member" element={<Member/>}/>
           <Route path="/blacklist" element={<BlackList/>} />
           <Route path="/delivery" element={<Delivery/>} />
+          <Route path="/detailProduct" element={<DetailProduct/>}/>
           <Route path="/*" element={<Error/>} />
         </Route>
       </Routes>
