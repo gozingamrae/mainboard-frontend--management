@@ -21,7 +21,7 @@ function Warehousing(){
     }
     const onClickSubmit = () => {
         alert(selectType + "입고를 완료했습니다.")
-        nav("/");
+        nav("/inventory");
     }
 
     return (
