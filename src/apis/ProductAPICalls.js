@@ -71,6 +71,36 @@ export const callSearchProductListAPI = ({currentPage}) => {
 }
 
 
+// 상품 명으로 검색
+export const callProductListByProductNameAPI = ({productName}) => {
+    
+    let requestURL;
+
+    if(productName !== undefined || productName !== null){
+        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?name=${productName}`;
+    }else {
+        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?name=${productName}`;
+    }
+    
+    console.log('[ProductListByProductNameAPI ] requestURL : ', requestURL);
+
+    return async (dispatch, getState) => {
+        console.log("start")
+        const result = await fetch(requestURL, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*"                
+            }
+        })
+        .then(response => response.json());
+        if(result.status === 200 || result.status === 201){
+            console.log('callProductListByProductNameAPI result:', result)
+            dispatch({ type: GET_PRODUCT,  payload: result.data });
+        }
+    };
+}
+
 // 검색
 export const callDetailProductAPI = ({productCode}) => {
     
