@@ -49,8 +49,8 @@ function OrderReportTable() {
                             <td>{list.memberCode}</td>
                         </tr>
                     )
-                })) : 
-                
+                })) 
+                : 
                 (orderSearch.order.map (search => {
                     return (
                         <tr>
