@@ -5,18 +5,7 @@
       "results": [
         { "name": "상품 조회/수정", "src": "/product" },
         { "name": "상품 등록", "src": "/addProduct" },
-        { "name": "상품 일괄 등록", "src": "/produc" },
-        { "name": "배송정보 관리", "src": "/produc" }
-      ]
-    },
-    {
-      "name": "판매관리",
-      "results": [
-        { "name": "주문 검색", "src": "/produc" },
-        { "name": "배송 현황 관리", "src": "/produc" },
-        { "name": "반품 관리", "src": "/produc" },
-        { "name": "교환 관리", "src": "/produc" },
-        { "name": "취소 관리", "src": "/produc" }
+        { "name": "상품 일괄 등록", "src": "/produc" }
       ]
     },
     {
@@ -28,28 +17,33 @@
       ]
     },
     {
-      "name": "배송관리",
+      "name": "판매관리",
       "results": [
-        { "name": "배송 내역 조회", "src": "/delivery" },
-        { "name": "배송 테스트 페이지", "src": "/delivery-test" }
+        { "name": "주문 검색", "src": "/orderreport" },
+        { "name": "배송 현황 관리", "src": "/delivery" }
       ]
     },
-    {
-      "name": "회원관리",
-      "results": [{ "name": "공지사항 조회/수정", "src": "/produc" }]
-    },
+
     {
       "name": "공지사항 관리",
       "results": [
-        { "name": "공지사항 관리", "src": "/produc" },
-        { "name": "공지사항 조회/수정", "src": "/produc" }
+        { "name": "공지사항 등록", "src": "/addnotice" },
+        { "name": "공지사항 조회/수정", "src": "/notice" }
       ]
     },
     {
       "name": "혜택관리",
       "results": [
         { "name": "쿠폰등록", "src": "/cuponregist" },
-        { "name": "포인트", "src": "/produc" }
+        { "name": "쿠폰리포트", "src": "/cuponreport" },
+        { "name": "포인트지급내역", "src": "/pointreport" }
+      ]
+    },
+    {
+      "name": "회원관리",
+      "results": [
+        { "name": "회원정보", "src": "/member" },
+        { "name": "블랙리스트관리", "src": "/blacklist" }
       ]
     }
   ],

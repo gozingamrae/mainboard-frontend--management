@@ -194,10 +194,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   margin-top: 8.5px;
-}
 
+}
+.box label{
+  padding : 10px;
+  width : 100px;
+}
 .intervalStandard {
   display: flex;
   justify-content: center;
