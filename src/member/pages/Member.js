@@ -1,11 +1,24 @@
 import { useEffect, useState } from "react";
 import style from "../css/Member.module.css";
+import { useSelector, useDispatch } from 'react-redux';
+import { callGetMembersAPI } from "../../apis/MemberAPICalls";
 
 //스타일 예시
 function Member(){
 
     const [ focusDetail, setFocusDetail ] = useState(null);
     const [ beforeDetail, setBeforeDetail ] = useState(null);
+
+    const dispatch = useDispatch(); 
+    const members = useSelector(state => state.memberAPIReducer);
+    
+    useEffect(
+        ()=>{
+            dispatch(callGetMembersAPI());
+            console.log(members)
+        },[]
+        
+    )
   
     //navbutton 클릭 핸들러
     const onClickDetail = (e) => {
@@ -23,7 +36,6 @@ function Member(){
          (setBeforeDetail(e.target))
       }
     }
-
 
     return (
         <div className={style.componentBox}>
@@ -64,8 +76,8 @@ function Member(){
             <div className={style.box}>
             <table>
                 <tr><th>이름</th><th>아이디</th><th>블랙리스트 여부</th><th>가입날짜</th><th>상세정보</th></tr>
-                <tr><td>이유리</td><td>leeyr426</td><td>N</td><td>2022.04.26</td>
-                <td><button id="index" className={style.detailButton} onClick={onClickDetail}>상세정보</button></td></tr>
+                {members.data != null && members.data.map((member)=>(<tr><td>{member.memberName}</td><td>{member.memberId}</td><td>{member.withdrawalMember}</td><td>{member.joinDate}</td>
+                <td><button id="index" className={style.detailButton} onClick={onClickDetail}>상세정보</button></td></tr>))}
                   </table>   
                   { focusDetail == "index"?
                         <div className={style.tableBox}>
