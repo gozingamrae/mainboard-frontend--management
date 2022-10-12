@@ -12,6 +12,7 @@ function CuponRegist(){
     const dispatch = useDispatch();
     const nav = useNavigate();
 
+
     const [focusData, setFocusData]  = useState({"subButton" : 0 , "pageNum" : 1});
     const [focusDataA, setFocusDataA]  = useState({"subButton" : 0 , "pageNum" : 1});
     const [focusDataB, setFocusDataB]  = useState({"subButton" : 0 , "pageNum" : 1});
@@ -42,8 +43,9 @@ function CuponRegist(){
         , document.getElementById('minOrder').value, document.getElementById('limitDate').value
         ));
 
+
         alert("쿠폰 등록이 완료되었습니다.");
-        // nav("/cuponreport");
+        nav("/cuponreport");
     }
 
     // const onClickclient = (e) => {

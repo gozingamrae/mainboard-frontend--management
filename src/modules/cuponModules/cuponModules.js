@@ -1,17 +1,26 @@
 import { createActions, handleActions } from 'redux-actions';
 
-const initialState = [];
+const initialState = {coupon: []};
 
-export const GET_CUPON = "cuponlist/GET_CUPON";
+export const GET_CUPONS = "cupons/GET_CUPONS";
 
 export const actions = createActions({
-    [GET_CUPON]: () => {}
+    [GET_CUPONS]: () => {}
 })
 
 const cuponReducer = handleActions(
     {
-        [GET_CUPON]: (state, {payload}) =>{
-            return payload;
+        [GET_CUPONS]: (state, {payload : coupon}) =>{
+
+            // console.log(payload)
+            // state.coupon = payload;
+            // console.log(state)
+            // return state;
+
+            return {
+                ...state,
+                coupon
+            }
         }
     },
     initialState

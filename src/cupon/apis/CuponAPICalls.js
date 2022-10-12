@@ -1,4 +1,6 @@
-import { GET_CUPON } from "../../modules/cuponModules/cuponModules";
+import { INSERT_CUPONS } from "../../modules/cuponModules/cuponinsertModules";
+import { GET_CUPONS } from "../../modules/cuponModules/cuponModules";
+
 
 export function callInsertCuponAPI(couponName, target, explanation, discountRate, minOrderPrice, expirationPeriod){
 
@@ -25,7 +27,7 @@ export function callInsertCuponAPI(couponName, target, explanation, discountRate
         // console.log("results.data : " , results.data);
         console.log("results.message : " , results.message);
 
-        dispatch({type: GET_CUPON, payload: results.data});
+        dispatch({type: INSERT_CUPONS, payload: results.data});
         
     }
 }
@@ -33,7 +35,7 @@ export function callInsertCuponAPI(couponName, target, explanation, discountRate
 export function callGetCuponListAPI(couponName, target, startDate, endDate){
     const requestURL = "http://127.0.0.1:8080/cupons/lists/";
 
-    return async function GetCupon(dispatch) {
+    return async function GetCupons(dispatch) {
 
         const results = await fetch(requestURL, {
             method: 'POST',
@@ -52,7 +54,32 @@ export function callGetCuponListAPI(couponName, target, startDate, endDate){
         console.log("results.data : " , results.data);
         console.log("results.message : " , results.message);
 
-        dispatch({type: GET_CUPON, payload: results.data});
+        dispatch({type: GET_CUPONS, payload: results.data});
+
+    }
+}
+
+export function callDeleteCuponAPI(couponCode){
+
+    const requestURL = "http://127.0.0.1:8080/cupons/delete";
+
+    return async function DeleteCupon(dispatch) {
+
+        const results = await fetch(requestURL, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                couponCode : couponCode
+            })
+        }).then(res => res.json());
+
+        // console.log("results.data : " , results.data);
+        console.log("results.message : " , results.message);
+
+        dispatch({type: INSERT_CUPONS, payload: results.data});
         
     }
 }

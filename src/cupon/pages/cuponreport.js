@@ -1,9 +1,11 @@
 import "./SearchBox"
 import CuponReportTable from "./cuponreportTable.js";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import "../css/cuponreport-style.css"
 import { useSelector, useDispatch } from 'react-redux';
 import { callGetCuponListAPI } from "../apis/CuponAPICalls";
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 function CuponReport(){
 
@@ -12,28 +14,42 @@ function CuponReport(){
     const [isChecked, setisChecked] =  useState(false);
 
     const cupons = useSelector(state => state.cuponReducer);
-    console.log("cupons : ", cupons);
-
+    const nav = useNavigate();
+    // console.log("쿠폰이르으음 : ", cupons);
 
     const onClickHandler = (e) => {
+        // setisChecked(false);
         console.log("쿠폰이름 : " , document.getElementById('cuponName').value);
         console.log("지급대상 : ", document.querySelector('input[id="client"]:checked').value);
         console.log("시작 기간 : ", document.getElementById('startDate').value);
         console.log("끝나는 기간 : ", document.getElementById('endDate').value);
-        console.log("cupons : ", cupons);
+        // console.log("cupons : ", cupons);
         dispatch(callGetCuponListAPI(document.getElementById('cuponName').value,
         document.querySelector('input[id="client"]:checked').value,
         document.getElementById('startDate').value,
         document.getElementById('endDate').value
         ));
-        console.log("쿠폰이르으음 : ", cupons.cuponName.value);
-        //setisChecked(true);
+        // console.log("쿠폰이르으음 : ", cupons);
+        //nav("/");
+        console.log("현재코드 : ", cupons.coupon.couponCode)
+        if(cupons.coupon.couponCode)
+            setisChecked(true);
+        else{
+            alert("조건에 맞는 쿠폰이 없습니다.");
+            // window.location.reload();
+        }
+                    // setisChecked(true);
     }
+    
+    // const mounted = useRef(false);
 
-    useEffect(
-        () => { console.log("cupons : ", cupons); },
-        [cupons],
-    );
+    // useEffect(() => {
+    //     if(!mounted.current){
+    //         mounted.current=true;
+    //     }else{
+    //         console.log("ddddddddddddd");
+    //     }
+    // }, cupons.coupon.couponCode)
 
 
     return (
@@ -80,16 +96,8 @@ function CuponReport(){
 
             </div>
 
-            <div className="box">
-                <table>
-                <tr><th>쿠폰코드</th><th>쿠폰이름</th><th>지급대상</th><th>할인률</th><th>최소 주문 금액</th><th>쿠폰 유효 기간</th><th>수정 / 삭제</th></tr>
-                {isChecked?cupons.map(cupon => <tr><td>{cupon.target}</td></tr>):<div/>}
-            
 
-
-                </table>
-            </div>
-
+            {isChecked?<div className="box"><CuponReportTable/></div>:<div/>}
 
 
         </div>
