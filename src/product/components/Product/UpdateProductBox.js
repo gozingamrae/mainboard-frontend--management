@@ -1,21 +1,77 @@
-import { useState } from "react";
 import style from "../../css/Product2.module.css"
-import Slider from "./slider";
-
-
+import { useSelector, useDispatch } from 'react-redux';
+import { useLocation } from 'react-router';
+import { useEffect, useState } from "react";
+import qs from "query-string"; 
+import { callDetailProductAPI
+} from "../../../apis/ProductAPICalls";
 function SearchBox(){
+    
     const [ product, setProduct] = useState({
-        "name" : "",
-        "category" : "",
+        "boardgameName" : "",
+        "boardgameCategory" : "",
         "brand" :"",
-        "manufacturer" : "",
-        "price" : 0,
-        "grades" : [],
-        "rentalPeriod":[],
+        "manufacturingCompany" : "",
+        "defaultRentalFee" : 0,
+        "srentalFee" : 0,
+        "arentalFee":[],
         "storageLocation" :"",
-        "parts" :[],
-        "checkList" :[]
+        "detailInspectionCheckListDTOList" :[],
+        "requiredPartDTOList" :[]
     });
+    //쿼리 스트링 추출
+    const searchParams = useLocation().search;
+    const query = qs.parse(searchParams);
+
+    // 리덕스를 이용하기 위한 디스패처, 셀렉터 선언
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.productReducer); 
+    console.log(products);
+   
+    useEffect(
+        () => {         
+            dispatch(callDetailProductAPI({
+                productCode: query.productCode
+            }))
+        }
+        ,[]
+    );
+    useEffect(()=>{
+        setProduct(products);
+        console.log("i'm " , products)
+        if(document.getElementById("brand")){
+            document.getElementById("brand").value=products.brand;
+        }
+        if(document.getElementById("manufacturingCompany")){
+            document.getElementById("manufacturingCompany").value=products.manufacturingCompany;
+        }
+        if(document.getElementById("boardgameName")){
+            document.getElementById("boardgameName").value=products.boardgameName;
+        }
+        if(document.getElementById("defaultRentalFee")){
+            document.getElementById("defaultRentalFee").value=products.defaultRentalFee;
+        }
+        if(document.getElementById("srentalFee")){
+            document.getElementById("srentalFee").value=products.srentalFee;
+        }if(document.getElementById("arentalFee")){
+            document.getElementById("arentalFee").value=products.arentalFee;
+        }if(document.getElementById("brentalFee")){
+            document.getElementById("brentalFee").value=products.brentalFee;
+        }
+        if(document.getElementById("sstate")){
+            document.getElementById("sstate").value=products.sstate;
+        }
+        if(document.getElementById("astate")){
+            document.getElementById("astate").value=products.astate;
+        }
+        if(document.getElementById("bstate")){
+            document.getElementById("bstate").value=products.bstate;
+        }
+        if(document.getElementById("astate")){
+            document.getElementById("astate").value=products.astate;
+        }
+        // document.getElementById("productName").value=products.boardgameName;
+    },[products])
 
     const onChangeName = (e) =>{
         setProduct({...product, "name":e.target.value});
@@ -41,12 +97,12 @@ function SearchBox(){
     const onClickAddCheckList = ()=> {
         const checkListName = document.getElementById("checkListName");
         const checkListResults = document.getElementById("checkListResults");
-        setProduct({...product, "checkList" : [...product.checkList,{ "name" : checkListName.value, "results":checkListResults.value}]});
+        setProduct({...product, "detailInspectionCheckListDTOList" : [...product.detailInspectionCheckListDTOList,{ "checkContent" : checkListName.value, "results":checkListResults.value}]});
     }
     const onClickAddParts = () =>{
         const partName = document.getElementById("partName");
         const partNum  = document.getElementById("partNum");
-        setProduct({...product, "parts" : [...product.parts ,{ "name" : partName.value, "num" : partNum.value} ]});
+        setProduct({...product, "requiredPartDTOList" : [...product.requiredPartDTOList ,{ "partsName" : partName.value, "partsCount" : partNum.value} ]});
     }
     return (
         <div>
@@ -54,7 +110,7 @@ function SearchBox(){
                 <h1>상품 정보 입력</h1>
                 <div className={style.subBox}>
                     <h1>상품명</h1>
-                    <input type="text" placeholder="상품명을 입력하세요." style={{width:"80%"}} onChange={onChangeName}/>
+                    <input id="boardgameName" type="text" placeholder="상품명을 입력하세요." style={{width:"80%"}} onChange={onChangeName}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>카테고리</h1>
@@ -68,11 +124,11 @@ function SearchBox(){
                 </div>
                 <div className={style.subBox}>
                     <h1>브랜드</h1>
-                    <input type="text" placeholder="상품의 브랜드를 입력하세요." style={{width:"80%"}}/>
+                    <input id="brand" type="text" placeholder="상품의 브랜드를 입력하세요." style={{width:"80%"}}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>제조사</h1>
-                    <input type="text" placeholder="상품의 제조사를 입력하세요." style={{width:"80%"}}/>
+                    <input id="manufacturingCompany" type="text" placeholder="상품의 제조사를 입력하세요." style={{width:"80%"}}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>대표사진 입력</h1>
@@ -87,14 +143,14 @@ function SearchBox(){
                 <h1>대여료</h1>
                 <div className={style.subBox}>
                     <h1>기본 대여료(일)</h1>
-                    <input type="number" min="0" onChange={onChangePrice}/>
+                    <input id="defaultRentalFee" type="number" min="0" onChange={onChangePrice}/>
                 </div>
                 <div className={style.borderSubBox}>
                     <table>
-                        <tr><th>번호</th><th>등급</th><th>등급별 할인률</th></tr>
-                        <tr><td>1</td><td>최상</td><td><input type="number"/></td></tr>
-                        <tr><td>1</td><td>상</td><td><input type="number"/></td></tr>
-                        <tr><td>1</td><td>중</td><td><input type="number"/></td></tr>
+                        <tr><th>번호</th><th>등급</th><th>등급별 가격</th><th>판매상태</th></tr>
+                        <tr><td>1</td><td>최상</td><td><input id="srentalFee" type="number"/></td><td><select id="sstate"><option>판매중</option><option>품절</option><option>판매중지</option></select></td></tr>
+                        <tr><td>2</td><td>상</td><td><input id="arentalFee" type="number"/></td><td><select id="astate"><option>판매중</option><option>품절</option><option>판매중지</option></select></td></tr>
+                        <tr><td>3</td><td>중</td><td><input id="brentalFee" type="number"/></td><td><select id="bstate"><option>판매중</option><option>품절</option><option>판매중지</option></select></td></tr>
                     </table>
                 </div>
             </div>
@@ -116,10 +172,10 @@ function SearchBox(){
                 <div className={style.borderSubBox}>
                     {/* <h1>등급별 할인률을 추가하세요.</h1> */}
                     <table>
-                    <tr><th>번호</th><th>부품명</th><th>필수 개수</th></tr>
-                    {product.parts.map((part, index)=>(
+                    <tr><th>번호</th><th>부품명</th><th>필수 개수</th><th>삭제</th></tr>
+                    {product?.requiredPartDTOList?.map((part, index)=>(
                             <tr> <td>{index+1}</td>
-                                 <td>{part.name}</td><td>{part.num}개</td></tr>
+                                 <td>{part.partsName}</td><td>{part.partsCount}개</td><td><button>삭제</button></td></tr>
                         ))}
                     </table>
                 </div>
@@ -142,10 +198,10 @@ function SearchBox(){
                 <div className={style.borderSubBox}>
                     {/* <h1>등급별 할인률을 추가하세요.</h1> */}
                     <table>
-                    <tr><th>번호</th><th>체크리스트</th><th>결과 값</th></tr>
-                    {product.checkList.map((check, index)=>(
+                    <tr><th>번호</th><th>체크리스트</th><th>결과 값</th><th>삭제</th></tr>
+                    {product?.detailInspectionCheckListDTOList?.map((check, index)=>(
                             <tr> <td>{index+1}</td>
-                                 <td>{check.name}</td><td>{check.results}</td></tr>
+                                 <td>{check.checkContent}</td><td>{"아니요"}</td><td><button>삭제</button></td></tr>
                         ))}
                     </table>
                 </div>

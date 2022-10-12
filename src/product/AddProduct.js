@@ -20,7 +20,7 @@ function AddProduct(){
     }
     const onClickSubmit = () => {
         alert(selectType + " 상품이 등록되었습니다.")
-        nav("/");
+        nav("/product");
     }
 
     return (
