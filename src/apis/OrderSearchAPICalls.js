@@ -3,7 +3,7 @@ import axios from "axios"
 
 export function callSearchOrderAPI(text, type) {
 
-    return async function getOrderList(dispatch) {
+    return async function getOrderList(dispatch,getState) {
 
         if (type == "orderId"){
             console.log(text)
@@ -16,7 +16,6 @@ export function callSearchOrderAPI(text, type) {
             });
             console.log("ApiCalls=> orderId에 값이 들어왔나" , resultOrderId.data.data);
             dispatch({ type: SEARCH_ORDER,  payload: resultOrderId.data.data});
-
         } else if (type == "productName"){
             const resultProductName = await axios({
                 method: "Post",
