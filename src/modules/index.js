@@ -14,9 +14,9 @@ const rootReducer = combineReducers({
     cuponInsertReducer,
     orderReducer,
     productReducer,
-    addInventoryReducer
+    addInventoryReducer,
     memberAPIReducer,
-    blacklistReducer
+    blacklistReducer,
     orderSearchReducer,
 });
 

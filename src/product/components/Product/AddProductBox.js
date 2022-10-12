@@ -62,9 +62,9 @@ function SearchBox(){
         formData.append("brand", insertProduct.brand);
         formData.append("manufacturingCompany", insertProduct.manufacturingCompany);
         formData.append("defaultRentalFee", insertProduct.defaultRentalFee);
-        formData.append("srentalFee", insertProduct.srentalFee);
-        formData.append("arentalFee", insertProduct.arentalFee);
-        formData.append("brentalFee", insertProduct.brentalFee);
+        formData.append("SRentalFee", insertProduct.srentalFee);
+        formData.append("ARentalFee", insertProduct.arentalFee);
+        formData.append("BRentalFee", insertProduct.brentalFee);
         formData.append("storage", insertProduct.storage);
         formData.append("arentalFee", insertProduct.arentalFee);
 
