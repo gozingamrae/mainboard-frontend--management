@@ -1,43 +1,70 @@
-import { useState } from "react";
-import style from "../../css/Inventory.module.css";
 
+import style from "../../css/Inventory.module.css";
+import {callProductListByProductNameAPI
+} from "../../../apis/ProductAPICalls";
+import {callDetailProductAPI
+} from "../../../apis/InventoryAPICalls";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from 'react-redux';
 
 function SearchBox(){
-    const options = [{ "option": "상품번호"}, { "option": "상품명"},{ "option": "카테고리명"},{ "option": "브랜드명"}]
-    const categorys = [{"name" : "전략"}, {"name" : "심리"},{"name" : "추리"},{"name":"파티"},{"name":"마피아"}]
-    const gameName = [{"name" : "스플랜더"}, {"name" : "부루마블"},{"name" : "할리갈리"},{"name":"어쩌고"},{"name":"저쩌고"}]
+    
+    // 리덕스를 이용하기 위한 디스패처, 셀렉터 선언
+    const dispatch = useDispatch();
+    const products = useSelector(state => state.productReducer); 
+    const inventoryDatas = useSelector(state => state.addInventoryReducer); 
+    
+    //재고 정보 입력
     const [searchText, setSearchText] = useState("");
-    const [click, setClick] =useState(false); 
+    const [searchDatas, setSearchDatas] = useState(false); 
+    const [inputInventoryParts, setIngentoryParts] = useState(false);
+
     const onChangeSearchText = (e) =>{
         setSearchText(e.target.value);
     }
-    const onClickButton = () =>{
-        setClick(true);
+    const onClickButton = (e) =>{
+        dispatch(callDetailProductAPI({
+            productCode: e.target.id 
+        }))
+        console.log(e.target.id)
     }
     const onClickSearch = () =>{
-        setSearchText("부루마블");
+        dispatch(callProductListByProductNameAPI({
+            productName: searchText
+        }))
     }
+    useEffect(()=>{
+        products.length != undefined? setSearchDatas(products):console.log("상품 정보가 없습니다.");        
+    },[products])
+    useEffect(()=>{
+        console.log("상품 정보", inventoryDatas.requiredPartDTOList);
+        inventoryDatas.requiredPartDTOList != undefined? setIngentoryParts(inventoryDatas.requiredPartDTOList):console.log("재고 부품 정보가 없습니다.");       
+    },[inventoryDatas]);
+
     return (
         <div>
             <div className={style.box}>
                 <h1>재고 정보 입력</h1>
                 <div className={style.subBox}>
                     <h1>상품 검색</h1>
-                    <input type="text" placeholder="상품을 검색하세요"/>
-                    <button className={style.subButton} onClick={onClickSearch}>검색하기</button>
+                    <input onChange={onChangeSearchText} type="text" placeholder="상품을 검색하세요"/>
+                    <button onClick={onClickSearch}>검색</button>
                 </div>
-                <div className={style.borderSubBox}>
-                    {searchText == "부루마블"? 
+                <div>
+                    {searchDatas? searchDatas.map((data)=>(
                         <div className={style.subBox} style={{width : "100%"}}>
-                            <h1 style={{width : "60%"}}>부루마블</h1>
-                            <button onClick={onClickButton}>선택하기</button>
-                        </div>:
-                        null
-                    }
+                            <div style={{width : "60%"}}>{data.boardgameName}</div>
+                            <button id={data.boardgameTypeCode} onClick={onClickButton}>선택하기</button>
+                        </div>
+                        )):null }
                 </div>
             </div>
             <div className={style.box}>
                 <h1>재고 상태</h1>
+                <div className={style.subBox}>
+                    <h1>상품명</h1>
+                    {inventoryDatas.boardgameName}
+                </div>
                 <div className={style.subBox}>
                     <h1>등급</h1>
                     <select>
@@ -50,16 +77,12 @@ function SearchBox(){
             <div className={style.box}>
                 <h1>보유 부품 입력</h1>
                 <div className={style.borderSubBox}>
-                    {click? <table>
+                    <table>
                         <tr><th style={{width:"50%"}}>부품명</th><th>필수개수</th><th>보유 개수</th></tr>
-                        <tr><td>바닥판</td><td>1개</td><td><input type="number"/>개</td></tr>
-                        <tr><td>이동말</td><td>1개</td><td><input type="number"/>개</td></tr>
-                        <tr><td>5천원권지폐</td><td>30개</td><td><input type="number"/>개</td></tr>
-                        <tr><td>1만원권지폐</td><td>50개</td><td><input type="number"/>개</td></tr>
-                        <tr><td>5만원권지폐</td><td>30개</td><td><input type="number"/>개</td></tr>
-                    </table> :
-                    <div>상품을 선택하세요.</div>}
-                    
+                        {inputInventoryParts? inputInventoryParts.map((data)=>(
+                            <tr><td>{data.partsName}</td><td>{data.partsCount}개</td><td><input type="number"/>개</td></tr>
+                        )):null}
+                    </table>
                 </div>
             </div>
         </div>

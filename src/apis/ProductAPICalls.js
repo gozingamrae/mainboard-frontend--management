@@ -77,9 +77,9 @@ export const callProductListByProductNameAPI = ({productName}) => {
     let requestURL;
 
     if(productName !== undefined || productName !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?name=${productName}`;
+        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?productName=${productName}`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?name=${productName}`;
+        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?productName=${productName}`;
     }
     
     console.log('[ProductListByProductNameAPI ] requestURL : ', requestURL);
