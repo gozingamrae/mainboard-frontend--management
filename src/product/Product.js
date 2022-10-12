@@ -8,14 +8,10 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
 function Product(){
-
     // 리덕스를 이용하기 위한 디스패처, 셀렉터 선언
-    const dispatch = useDispatch();
-    // const products = useSelector(state => state.productReducer); 
+    const dispatch = useDispatch(); 
     
-    // const [start, setStart] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
-    // const [endPage, setEndPage] = useState(1);
        
     useEffect(
         () => {         

@@ -1,7 +1,34 @@
 import { 
     GET_PRODUCTS,
-    GET_PRODUCT
+    GET_PRODUCT,
+    POST_PRODUCT
 } from '../modules/productModules/ProductModule.js';
+
+
+export const callProductRegistAPI = ({form}) => {
+    console.log('[ProduceAPICalls] callProductRegistAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products`;
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "POST",
+            headers: {
+                "Accept": "*/*"
+            },
+            body: form
+        })
+        .then(response => response.json());
+
+        console.log('[ProduceAPICalls] callProductRegistAPI RESULT : ', result);
+
+        dispatch({ type: POST_PRODUCT,  payload: result });
+        
+    };    
+}
+
+
 
 export const callProductListAPI = ({currentPage}) => {
     

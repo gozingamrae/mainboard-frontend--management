@@ -17,6 +17,8 @@ function AddProduct(){
         nav("/product");
     }
 
+    const onClickHandle = (e) => {
+    }
     return (
         <div className={style.componentBox}>
         <div className={style.titleBox}>상품 수정</div>
