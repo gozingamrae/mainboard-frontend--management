@@ -2,8 +2,8 @@ import "../css/orderreport-style.css";
 
 import { useEffect, useState } from 'react';
 import { callGetOrderListAPI } from '../../apis/OrderAPICalls';
+import { callSearchOrderAPI } from '../../apis/OrderSearchAPICalls';
 import { useSelector, useDispatch } from 'react-redux';
-import { GET_ORDERLIST } from "../../modules/orderModules/orderModule";
 
 function OrderReportTable() {
 
@@ -14,27 +14,28 @@ function OrderReportTable() {
         ()=>
         {
              dispatch(callGetOrderListAPI());
+             console.log(orderList);
         },
         []
     );
 
-    console.log("orderList : " , orderList)
+    console.log("orderList : " , orderList);
 
 
     return orderList && (
         <div className="box">
             <table>
-                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>결제여부</th></tr>
+                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>회원번호</th></tr>
                 <tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
                 {orderList.map(order => {
                     return (
                     <tr>
-                        <td>{order.orderCode}</td>
+                        <td>{order.orderId}</td>
                         <td>{order.orderAmount}</td>
                         <td>{order.couponUsedAmount}</td>
                         <td>{order.pointsUsedAmount}</td>
                         <td>{order.orderDate}</td>
-                        <td>{order.whetherPay}</td>
+                        <td>{order.memberCode}</td>
                     </tr>
                     )
                 })}

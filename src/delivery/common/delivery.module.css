@@ -133,8 +133,8 @@
   font-size: 10px;
   color: black;
 }
-input[type="date"]::-webkit-calendar-picker-indicator {
+/* input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
   appearance: none;
-}
+} */
