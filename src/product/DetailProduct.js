@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useLocation } from 'react-router';
-import qs from "query-string"; 
+import qs from "query-string";
 import UpdateProductBox from "./components/Product/UpdateProductBox"
 import style from "./css/Product2.module.css"
 function AddProduct(){
