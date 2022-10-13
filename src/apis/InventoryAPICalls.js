@@ -1,5 +1,6 @@
 import { 
     GET_INVENTORYS,
+    POST_INVENTORYS,
     GET_PRODUCT
 } from '../modules/inventoryModules/addInventoryModule.js';
 
@@ -66,3 +67,26 @@ export const callInventoryListAPI = ({currentPage}) => {
     };
 }
 
+
+export const callInventoryRegistAPI = ({form}) => {
+    console.log('[InventoryAPICalls] callInventoryRegistAPI Call');
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/inventorys`;
+
+    return async (dispatch, getState) => {
+
+        const result = await fetch(requestURL, {
+            method: "POST",
+            headers: {
+                "Accept": "*/*"
+            },
+            body: form
+        })
+        .then(response => response.json());
+
+        console.log('[InventoryAPICalls] callInventoryRegistAPI RESULT : ', result);
+
+        dispatch({ type: POST_INVENTORYS,  payload: result });
+        
+    };    
+}

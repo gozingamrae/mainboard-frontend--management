@@ -30,9 +30,6 @@ function Warehousing(){
                 재고 입고
             </div>
             <AddInventoryBox/>
-            <button style={{width : "100%" , height : "50px", margin : "10px"}} onClick={onClickSubmit}>
-                입고하기
-            </button>
         </div>
     )
 }

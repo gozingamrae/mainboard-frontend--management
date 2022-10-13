@@ -1,14 +1,21 @@
 
 import style from "../../css/Inventory.module.css";
-import {callProductListByProductNameAPI
+import {callProductListByProductNameAPI  
 } from "../../../apis/ProductAPICalls";
-import {callDetailProductAPI
+import {callDetailProductAPI,
+    callInventoryRegistAPI
 } from "../../../apis/InventoryAPICalls";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function SearchBox(){
     
+    const nav = useNavigate();
+    //재고 입력할 정보 모으기
+    const [inventoryInfo, setInventoryInfo] = useState(false);
+    console.log("재고 입력 정보", inventoryInfo);
+
     // 리덕스를 이용하기 위한 디스패처, 셀렉터 선언
     const dispatch = useDispatch();
     const products = useSelector(state => state.productReducer); 
@@ -26,7 +33,7 @@ function SearchBox(){
         dispatch(callDetailProductAPI({
             productCode: e.target.id 
         }))
-        console.log(e.target.id);
+        setInventoryInfo({...inventoryInfo,"boardgameTypeCode":e.target.id})
         setISClick(true);
         console.log(isClick);
     }
@@ -34,6 +41,25 @@ function SearchBox(){
         dispatch(callProductListByProductNameAPI({
             productName: searchText
         }))
+    }
+
+    const onClickSubmit = () => {
+
+        console.log('[InventoryRegistration] onClickInventoryRegistrationHandler');
+
+        const formData = new FormData();
+     
+        formData.append("boardgameTypeCode", inventoryInfo.boardgameTypeCode);
+        formData.append("ratingCode",  inventoryInfo.ratingCode);
+        
+        dispatch(callInventoryRegistAPI({	
+            form: formData
+        }));        
+        
+        
+        alert('재고 리스트로 이동합니다.');
+        nav('/inventory', { replace: true });
+        window.location.reload();
     }
     useEffect(()=>{
         products.length != undefined? setSearchDatas(products):console.log("상품 정보가 없습니다.");        
@@ -69,10 +95,10 @@ function SearchBox(){
                 </div>
                 <div className={style.subBox}>
                     <h1>등급</h1>
-                    <select>
-                        <option>최상</option>
-                        <option>상</option>
-                        <option>중</option>
+                    <select onChange={(e)=>{setInventoryInfo({...inventoryInfo,"ratingCode":e.target.value})}}>
+                        <option value="1">최상</option>
+                        <option value="2">상</option>
+                        <option value="3">중</option>
                     </select>
                 </div>
             </div>
@@ -88,6 +114,9 @@ function SearchBox(){
                     </table>
                 </div>
             </div>
+            <button style={{width : "100%" , height : "50px", margin : "10px"}} onClick={onClickSubmit}>
+                입고하기
+            </button>
         </div>
         
     )
