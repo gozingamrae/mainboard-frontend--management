@@ -2,42 +2,67 @@ import "../css/orderreport-style.css";
 
 import { useEffect, useState } from 'react';
 import { callGetOrderListAPI } from '../../apis/OrderAPICalls';
+import { callSearchOrderAPI } from '../../apis/OrderSearchAPICalls';
 import { useSelector, useDispatch } from 'react-redux';
-import { GET_ORDERLIST } from "../../modules/orderModules/orderModule";
 
 function OrderReportTable() {
 
     const orderList = useSelector(state => state.orderReducer);
+    const orderSearch = useSelector(state => state.orderSearchReducer);
     const dispatch = useDispatch();
-    
+    console.log("=====state===")
+    console.log()
+
     useEffect(
         ()=>
         {
              dispatch(callGetOrderListAPI());
+             console.log("==effect")
+             console.log(orderList);
+
+             dispatch(callSearchOrderAPI());
+             console.log("==eserch")
+             console.log(orderSearch);
         },
         []
     );
 
-    console.log("orderList : " , orderList)
+
+    console.log("orderList : " , orderList);
+    console.log("=========")
+    console.log("orderSearch : " , orderSearch['0'].order.length);
 
 
-    return orderList && (
+    return orderSearch && (
         <div className="box">
             <table>
-                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>결제여부</th></tr>
-                <tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
-                {orderList.map(order => {
+                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>회원번호</th></tr>
+                {orderSearch.order == undefined ? 
+                (orderList.map (list => {
                     return (
-                    <tr>
-                        <td>{order.orderCode}</td>
-                        <td>{order.orderAmount}</td>
-                        <td>{order.couponUsedAmount}</td>
-                        <td>{order.pointsUsedAmount}</td>
-                        <td>{order.orderDate}</td>
-                        <td>{order.whetherPay}</td>
-                    </tr>
+                        <tr>
+                            <td>{list.orderId}</td>
+                            <td>{list.orderAmount}</td>
+                            <td>{list.couponUsedAmount}</td>
+                            <td>{list.pointsUsedAmount}</td>
+                            <td>{list.orderDate}</td>
+                            <td>{list.memberCode}</td>
+                        </tr>
                     )
-                })}
+                })) 
+                : 
+                (orderSearch.order.map (search => {
+                    return (
+                        <tr>
+                            <td>{search.orderId}</td>
+                            <td>{search.orderAmount}</td>
+                            <td>{search.couponUsedAmount}</td>
+                            <td>{search.pointsUsedAmount}</td>
+                            <td>{search.orderDate}</td>
+                            <td>{search.memberCode}</td>
+                        </tr>
+                    )
+                }))}
 
             </table>
             <div className="pageButtonBox">

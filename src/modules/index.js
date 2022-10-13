@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import productReducer from './productModules/ProductModule';
 import  orderReducer from "./orderModules/orderModule";
+import addInventoryReducer from './inventoryModules/addInventoryModule';
+import  orderSearchReducer from "./orderModules/orderSearchModule";
 import  cuponReducer from "./cuponModules/cuponModules";
 import cuponInsertReducer from './cuponModules/cuponinsertModules';
 import memberAPIReducer from './memberModules/memberAPIModule';
@@ -12,8 +14,10 @@ const rootReducer = combineReducers({
     cuponInsertReducer,
     orderReducer,
     productReducer,
+    addInventoryReducer
     memberAPIReducer,
-    blacklistReducer
+    blacklistReducer,
+    orderSearchReducer,
 });
 
 export default rootReducer;

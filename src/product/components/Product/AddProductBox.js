@@ -1,85 +1,136 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import style from "../../css/Product2.module.css"
 import Slider from "./slider";
-
+import {callProductRegistAPI
+} from "../../../apis/ProductAPICalls";
 
 function SearchBox(){
-    const [ product, setProduct] = useState({
-        "name" : "",
-        "category" : "",
+    const dispatch = useDispatch();
+    const nav = useNavigate();
+    const [image, setImage] = useState(null);
+    const [imageUrl, setImageUrl] = useState();
+    const imageInput = useRef();
+    const [ insertProduct, setInsertProduct] = useState({
+        "boardgameName" : "",
+        "boardgameCategoryCode" : 1,
         "brand" :"",
-        "manufacturer" : "",
-        "price" : 0,
-        "grades" : [],
-        "rentalPeriod":[],
-        "storageLocation" :"",
-        "parts" :[],
-        "checkList" :[]
+        "manufacturingCompany" : "",
+        "defaultRentalFee" : 0,
+        "srentalFee" : 0,
+        "arentalFee":0,
+        "brentalFee":0,
+        "storage" :"",
+        "detailInspectionCheckListDTOList" :[],
+        "requiredPartDTOList" :[],
+        "boardgameTypeCode" : ""
     });
-
-    const onChangeName = (e) =>{
-        setProduct({...product, "name":e.target.value});
-    }
-    const onChangeCategory = (e) =>{
-        setProduct({...product, "category":e.target.value});
-    }
-    const onChangePrice = (e) =>{
-        setProduct({...product, "price":e.target.value});
-        console.log(product.price);
-    }
-    const onClickGradeAdd = ()=> {
-        const grade = document.getElementById("grade");
-        const sale = document.getElementById("gradeSale");
-        setProduct({...product, "grades": [...product.grades,{ "grade" : grade.value, "sale": sale.value}]});
-    }
-    const onClickPeriodAdd = ()=> {
-        const grade = document.getElementById("period");
-        const sale = document.getElementById("periodSale");
-        setProduct({...product, "rentalPeriod": [...product.rentalPeriod,{ "period" : grade.value, "sale": sale.value}]});
-        console.log(product.rentalPeriod)
-    }
+    console.log("상품 입력 정보 : " , insertProduct);
     const onClickAddCheckList = ()=> {
         const checkListName = document.getElementById("checkListName");
         const checkListResults = document.getElementById("checkListResults");
-        setProduct({...product, "checkList" : [...product.checkList,{ "name" : checkListName.value, "results":checkListResults.value}]});
+        setInsertProduct({...insertProduct, "detailInspectionCheckListDTOList" : [...insertProduct.detailInspectionCheckListDTOList,{ "name" : checkListName.value, "results":checkListResults.value}]});
     }
     const onClickAddParts = () =>{
         const partName = document.getElementById("partName");
         const partNum  = document.getElementById("partNum");
-        setProduct({...product, "parts" : [...product.parts ,{ "name" : partName.value, "num" : partNum.value} ]});
+        setInsertProduct({...insertProduct, "requiredPartDTOList" : [...insertProduct.requiredPartDTOList ,{ "name" : partName.value, "num" : partNum.value} ]});
     }
+    
+
+
+    const onChangeImageUpload = (e) => {
+
+        const image = e.target.files[0];
+
+        setImage(image);
+    };
+
+    const onClickImageUpload = () => {
+        imageInput.current.click();
+    }
+
+    const onClickSubmit = () => {
+
+        console.log('[ProductRegistration] onClickProductRegistrationHandler');
+
+        const formData = new FormData();
+     
+        formData.append("boardgameName", insertProduct.boardgameName);
+        formData.append("boardgameCategoryCode", insertProduct.boardgameCategoryCode);
+        formData.append("brand", insertProduct.brand);
+        formData.append("manufacturingCompany", insertProduct.manufacturingCompany);
+        formData.append("defaultRentalFee", insertProduct.defaultRentalFee);
+        formData.append("srentalFee", insertProduct.srentalFee);
+        formData.append("arentalFee", insertProduct.arentalFee);
+        formData.append("brentalFee", insertProduct.brentalFee);
+        formData.append("storage", insertProduct.storage);
+        formData.append("arentalFee", insertProduct.arentalFee);
+
+        if(image){
+            formData.append("productImage", image);
+        }
+        dispatch(callProductRegistAPI({	
+            form: formData
+        }));        
+        
+        
+        alert('상품 리스트로 이동합니다.');
+        nav('/product', { replace: true });
+        window.location.reload();
+    }
+    
     return (
         <div>
             <div className={style.box}>
                 <h1>상품 정보 입력</h1>
                 <div className={style.subBox}>
                     <h1>상품명</h1>
-                    <input type="text" placeholder="상품명을 입력하세요." style={{width:"80%"}} onChange={onChangeName}/>
+                    <input type="text" placeholder="상품명을 입력하세요." style={{width:"80%"}} onChange={(e)=>{setInsertProduct({...insertProduct,"boardgameName":e.target.value})}}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>카테고리</h1>
-                    <select style={{width:"80%"}} onChange={onChangeCategory}>
-                        <option>전략</option>
-                        <option>심리</option>
-                        <option>추리</option>
-                        <option>파티</option>
-                        <option>기타</option>
+                    <select style={{width:"80%"}} onChange={(e)=>{setInsertProduct({...insertProduct,"boardgameCategoryCode":e.target.value})}}>
+                        <option value="1" >여행/파티</option>
+                        <option value="2">교육/코딩</option>
+                        <option value="3">완구/어린이</option>
+                        <option value="4">전략</option>
+                        <option value="5">시리즈게임</option>
+                        <option value="6">테마</option>
+                        <option value="7">체스/바둑/장기</option>
+                        <option value="8">기타</option>
                     </select>
                 </div>
                 <div className={style.subBox}>
                     <h1>브랜드</h1>
-                    <input type="text" placeholder="상품의 브랜드를 입력하세요." style={{width:"80%"}}/>
+                    <input type="text" placeholder="상품의 브랜드를 입력하세요." style={{width:"80%"}} onChange={(e)=>{setInsertProduct({...insertProduct,"brand":e.target.value})}}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>제조사</h1>
-                    <input type="text" placeholder="상품의 제조사를 입력하세요." style={{width:"80%"}}/>
+                    <input type="text" placeholder="상품의 제조사를 입력하세요." style={{width:"80%"} } onChange={(e)=>{setInsertProduct({...insertProduct,"manufacturingCompany":e.target.value})}}/>
                 </div>
+                <div >
+                        { imageUrl && <img 
+                            src={ imageUrl } 
+                            alt="preview"
+                        />}
+                        <input                
+                            style={ { display: 'none' }}
+                            type="file"
+                            name='productImage' 
+                            accept='image/jpg,image/png,image/jpeg,image/gif'
+                            onChange={ onChangeImageUpload }
+                            ref={ imageInput }
+                        />
+                        <button 
+                            onClick={ onClickImageUpload } 
+                        >
+                            이미지 대표사진 입력
+                            </button>
+                    </div>
                 <div className={style.subBox}>
-                    <h1>대표사진 입력</h1>
-                    <input type="file"/>
-                </div>
-                <div className={style.subBox}>
-                    <h1>상세설명 입력</h1>
+                    <h1>상세설명 이미지 입력</h1>
                     <input type="file"/>
                 </div>
             </div>
@@ -87,84 +138,22 @@ function SearchBox(){
                 <h1>대여료</h1>
                 <div className={style.subBox}>
                     <h1>기본 대여료(일)</h1>
-                    <input type="number" min="0" onChange={onChangePrice}/>
-                </div>
-                <div className={style.subBox}>
-                    <h1>등급</h1>
-                    <select id="grade">
-                        <option>최상</option>
-                        <option>상</option>
-                        <option>중</option>
-                    </select>
-                    <div className={style.space}/>
-                    <h1>할인률</h1>
-                    <input type="number" id="gradeSale" min="0" max="100"/>
-                    <div className={style.space}/>
-                    <button onClick={onClickGradeAdd}>추가</button>
-                </div>
-                <div className={style.borderSubBox}>
-                    {/* <h1>등급별 할인률을 추가하세요.</h1> */}
-                    <table>
-                    <tr><th>번호</th><th>등급명</th><th>등급별 할인률</th></tr>
-                    {product.grades.map((grade, index)=>(
-                            <tr> <td>{index+1}</td>
-                                 <td>{grade.grade}</td><td>{grade.sale}%</td></tr>
-                        ))}
-                    </table>
+                    <input type="number" min="0" onChange={(e)=>{setInsertProduct({...insertProduct,"defaultRentalFee":e.target.value})}}/>
                 </div>
                 <div className={style.borderSubBox}>
                     <table>
                         <tr><th>번호</th><th>등급</th><th>등급별 할인률</th></tr>
-                        <tr><td>1</td><td>최상</td><td><input type="number"/></td></tr>
-                        <tr><td>1</td><td>상</td><td><input type="number"/></td></tr>
-                        <tr><td>1</td><td>중</td><td><input type="number"/></td></tr>
+                        <tr><td>1</td><td>최상</td><td><input type="number" onChange={(e)=>{setInsertProduct({...insertProduct,"srentalFee":e.target.value})}}/></td></tr>
+                        <tr><td>2</td><td>상</td><td><input type="number" onChange={(e)=>{setInsertProduct({...insertProduct,"arentalFee":e.target.value})}}/></td></tr>
+                        <tr><td>3</td><td>중</td><td><input type="number" onChange={(e)=>{setInsertProduct({...insertProduct,"brentalFee":e.target.value})}}/></td></tr>
                     </table>
                 </div>
-                <div className={style.subBox}>
-                    <h1>대여기간</h1>
-                    <input type="number" min="0" id="period"/><div>일이하</div>
-                    <div className={style.space}/>
-                    <h1>할인률</h1>
-                    <input type="number" id="periodSale" min="0" max="100"/>
-                    <div className={style.space}/>
-                    <button onClick={onClickPeriodAdd}>추가</button>
-                </div>
-                <div className={style.borderSubBox}>
-                    {/* <h1>등급별 할인률을 추가하세요.</h1> */}
-                    <table>
-                    <tr><th>번호</th><th>대여기간</th><th>대여기간별 할인률</th></tr>
-                    {product.rentalPeriod.map((period, index)=>(
-                            <tr> <td>{index+1}</td>
-                                 <td>{period.period}일 이하</td><td>{period.sale}%</td></tr>
-                        ))}
-                    </table>
-                </div>
-                <h1>대여료</h1>
-                <div className={style.borderSubBox}>
-                    {/* <h1>등급별 할인률을 추가하세요.</h1> */}
-                    <table>
-                    <tr><th>번호</th><th>등급명</th><th>등급별 할인률</th> 
-                                     <th>대여기간</th><th>대여기간 할인률</th>
-                                     <th>일별 대여료</th></tr>
-                                
-                    {product.grades.map((grade)=>
-                        (product.rentalPeriod.map((period, index)=>(
-                            <tr> <td>{index+1}</td>
-                                 <td>{grade.grade}</td><td>{grade.sale}%</td>
-                                 <td>{period.period}일 이하</td><td>{period.sale}%</td>
-                                 <td>{grade.sale == 0? product.price : product.price - (0.01 * grade.sale * product.price)-(0.01 * period.sale * product.price) }원</td>
-                            </tr>
-                        ))))}
-                    </table>
-                </div>
-
-                
             </div>
             <div className={style.box}>
                 <h1>재고 정보 입력</h1>
                 <div className={style.subBox}>
                     <h1>보관 위치</h1>
-                    <input type="text"/>
+                    <input type="text" onChange={(e)=>{setInsertProduct({...insertProduct,"storage":e.target.value})}}/>
                 </div>
                 <div className={style.subBox}>
                     <h1>구성 부품 추가</h1>
@@ -179,7 +168,7 @@ function SearchBox(){
                     {/* <h1>등급별 할인률을 추가하세요.</h1> */}
                     <table>
                     <tr><th>번호</th><th>부품명</th><th>필수 개수</th></tr>
-                    {product.parts.map((part, index)=>(
+                    {insertProduct.requiredPartDTOList.map((part, index)=>(
                             <tr> <td>{index+1}</td>
                                  <td>{part.name}</td><td>{part.num}개</td></tr>
                         ))}
@@ -205,14 +194,16 @@ function SearchBox(){
                     {/* <h1>등급별 할인률을 추가하세요.</h1> */}
                     <table>
                     <tr><th>번호</th><th>체크리스트</th><th>결과 값</th></tr>
-                    {product.checkList.map((check, index)=>(
+                    {insertProduct.detailInspectionCheckListDTOList.map((check, index)=>(
                             <tr> <td>{index+1}</td>
                                  <td>{check.name}</td><td>{check.results}</td></tr>
                         ))}
                     </table>
                 </div>
             </div>
-
+            <button style={{width : "100%" , height : "50px", margin : "10px"}} onClick={onClickSubmit}>
+            상품 등록 하기
+            </button>   
         </div>
         
     )

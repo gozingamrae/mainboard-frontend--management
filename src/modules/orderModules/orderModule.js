@@ -12,7 +12,7 @@ const orderReducer = handleActions(
     {
         [GET_ORDERLIST]: (state, {payload}) =>{
            return payload;
-        }
+        },
     },
     initialState
 );
