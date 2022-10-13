@@ -7,7 +7,8 @@ import  cuponReducer from "./cuponModules/cuponModules";
 import cuponInsertReducer from './cuponModules/cuponinsertModules';
 import memberAPIReducer from './memberModules/memberAPIModule';
 import blacklistReducer from './memberModules/blacklistModule';
-
+import productExampleReducer from './productModules/ProductExampleModule';
+import inventoryReducer from './inventoryModules/addInventoryModule';
 const rootReducer = combineReducers({
 
     cuponReducer,
@@ -18,6 +19,8 @@ const rootReducer = combineReducers({
     memberAPIReducer,
     blacklistReducer,
     orderSearchReducer,
+    productExampleReducer,
+    inventoryReducer
 });
 
 export default rootReducer;

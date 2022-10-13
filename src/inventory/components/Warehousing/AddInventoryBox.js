@@ -18,7 +18,7 @@ function SearchBox(){
     const [searchText, setSearchText] = useState("");
     const [searchDatas, setSearchDatas] = useState(false); 
     const [inputInventoryParts, setIngentoryParts] = useState(false);
-
+    const [ isClick , setISClick] = useState(false);
     const onChangeSearchText = (e) =>{
         setSearchText(e.target.value);
     }
@@ -26,7 +26,9 @@ function SearchBox(){
         dispatch(callDetailProductAPI({
             productCode: e.target.id 
         }))
-        console.log(e.target.id)
+        console.log(e.target.id);
+        setISClick(true);
+        console.log(isClick);
     }
     const onClickSearch = () =>{
         dispatch(callProductListByProductNameAPI({
@@ -82,6 +84,7 @@ function SearchBox(){
                         {inputInventoryParts? inputInventoryParts.map((data)=>(
                             <tr><td>{data.partsName}</td><td>{data.partsCount}개</td><td><input type="number"/>개</td></tr>
                         )):null}
+                        {isClick? <tr><td>카드</td><td>10개</td><td><input type="number"/>개</td></tr>:null}
                     </table>
                 </div>
             </div>

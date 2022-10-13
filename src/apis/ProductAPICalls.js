@@ -48,7 +48,6 @@ export const callProductListAPI = ({currentPage}) => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                
                 "Accept": "*/*"                
             }
         })

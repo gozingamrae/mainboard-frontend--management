@@ -1,10 +1,10 @@
 {
    "navs" : [{"name": "상품관리", "results": [{"name" : "상품 조회/수정", "src" : "/product"},
-                                             {"name" : "상품 등록", "src" : "/addProduct"},
-                                             {"name" : "상품 일괄 등록", "src" : "/produc"}]},
+                                             {"name" : "상품 등록", "src" : "/addProduct"}]},
             {"name": "재고관리","results" :[{"name" : "재고 입고", "src" : "/warehousing"},
                                              {"name" : "재고 조회", "src" : "/inventory"},
-                                             {"name" : "검수하기", "src" : "/inspect"}]},
+                                             {"name" : "검수하기", "src" : "/inspect"},
+                                             {"name" : "검수목록 조회", "src" : "/inspect"}]},
                {"name": "판매관리", "results" :[{"name" : "주문 검색", "src" : "/orderreport"},
                                                 {"name" : "배송 현황 관리", "src" : "/delivery"}]},
                
@@ -15,8 +15,6 @@
                                                       {"name" : "포인트지급내역", "src" : "/pointreport"}]},
                {"name": "회원관리", "results" : [{"name" : "회원정보", "src" : "/member"},
                                                    {"name" : "블랙리스트관리", "src" : "/blacklist"}]}
-   
-
                                                    ],
 
    "options" :[{"value" : 1, "name" :"수취인명"},
