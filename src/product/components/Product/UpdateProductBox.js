@@ -7,18 +7,9 @@ import { callDetailProductAPI
 } from "../../../apis/ProductAPICalls";
 function SearchBox(){
     
-    const [ product, setProduct] = useState({
-        "boardgameName" : "",
-        "boardgameCategory" : "",
-        "brand" :"",
-        "manufacturingCompany" : "",
-        "defaultRentalFee" : 0,
-        "srentalFee" : 0,
-        "arentalFee":[],
-        "storageLocation" :"",
-        "detailInspectionCheckListDTOList" :[],
-        "requiredPartDTOList" :[]
-    });
+    const productExample = useSelector(state => state.productExampleReducer);
+    console.log("등록에서 가져온 데이터 : ", productExample);
+    const [ product, setProduct] = useState(productExample);
     //쿼리 스트링 추출
     const searchParams = useLocation().search;
     const query = qs.parse(searchParams);

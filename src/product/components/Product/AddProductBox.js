@@ -5,13 +5,24 @@ import style from "../../css/Product2.module.css"
 import Slider from "./slider";
 import {callProductRegistAPI
 } from "../../../apis/ProductAPICalls";
+import { GET_PRODUCT, GET_PRODUCTS } from '../../../modules/productModules/ProductExampleModule';
 
 function SearchBox(){
     const dispatch = useDispatch();
     const nav = useNavigate();
+    //상품 썸네일 사진 정보
     const [image, setImage] = useState(null);
     const [imageUrl, setImageUrl] = useState();
+    
+    //상품 상세 정보 사진정보
+    const [detailImage, setDetailImage] = useState(null);
+    const [detailImageUrl, setDetailImageUrl] = useState();
+    
+
     const imageInput = useRef();
+    const detailImageInput = useRef();
+    
+
     const [ insertProduct, setInsertProduct] = useState({
         "boardgameName" : "",
         "boardgameCategoryCode" : 1,
@@ -26,29 +37,39 @@ function SearchBox(){
         "requiredPartDTOList" :[],
         "boardgameTypeCode" : ""
     });
+    dispatch({ type: GET_PRODUCTS,  payload: insertProduct })
+    const productExample = useSelector(state => state.productExampleReducer);
+    console.log("리덕스에 저장 : " , productExample);
     console.log("상품 입력 정보 : " , insertProduct);
+
     const onClickAddCheckList = ()=> {
         const checkListName = document.getElementById("checkListName");
         const checkListResults = document.getElementById("checkListResults");
-        setInsertProduct({...insertProduct, "detailInspectionCheckListDTOList" : [...insertProduct.detailInspectionCheckListDTOList,{ "name" : checkListName.value, "results":checkListResults.value}]});
+        setInsertProduct({...insertProduct, "detailInspectionCheckListDTOList" : [...insertProduct.detailInspectionCheckListDTOList,{ "checkContent" : checkListName.value, "resultType":checkListResults.value}]});
     }
     const onClickAddParts = () =>{
         const partName = document.getElementById("partName");
         const partNum  = document.getElementById("partNum");
-        setInsertProduct({...insertProduct, "requiredPartDTOList" : [...insertProduct.requiredPartDTOList ,{ "name" : partName.value, "num" : partNum.value} ]});
+        setInsertProduct({...insertProduct, "requiredPartDTOList" : [...insertProduct.requiredPartDTOList ,{ "partsName" : partName.value, "partsCount" : partNum.value} ]});
     }
     
-
-
     const onChangeImageUpload = (e) => {
-
         const image = e.target.files[0];
-
         setImage(image);
     };
 
     const onClickImageUpload = () => {
         imageInput.current.click();
+    }
+    
+    const onChangeDetailImageUpload = (e) => {
+        const detailImage = e.target.files[0];
+        console.log(detailImage)
+        setDetailImage(detailImage);
+    };
+
+    const onClickDetailImageUpload = () => {
+        detailImageInput.current.click();
     }
 
     const onClickSubmit = () => {
@@ -62,14 +83,17 @@ function SearchBox(){
         formData.append("brand", insertProduct.brand);
         formData.append("manufacturingCompany", insertProduct.manufacturingCompany);
         formData.append("defaultRentalFee", insertProduct.defaultRentalFee);
-        formData.append("srentalFee", insertProduct.srentalFee);
-        formData.append("arentalFee", insertProduct.arentalFee);
-        formData.append("brentalFee", insertProduct.brentalFee);
+        formData.append("SRentalFee", insertProduct.srentalFee);
+        formData.append("ARentalFee", insertProduct.arentalFee);
+        formData.append("BRentalFee", insertProduct.brentalFee);
         formData.append("storage", insertProduct.storage);
         formData.append("arentalFee", insertProduct.arentalFee);
 
         if(image){
             formData.append("productImage", image);
+        }
+        if(detailImage){
+            formData.append("productDetailImage", detailImage);
         }
         dispatch(callProductRegistAPI({	
             form: formData
@@ -126,13 +150,28 @@ function SearchBox(){
                         <button 
                             onClick={ onClickImageUpload } 
                         >
-                            이미지 대표사진 입력
+                        이미지 대표사진 입력
+                        </button>
+                    </div>
+                    <div >
+                        { detailImageUrl && <img 
+                            src={ detailImageUrl } 
+                            alt="preview"
+                        />}
+                        <input                
+                            style={ { display: 'none' }}
+                            type="file"
+                            name='productDetailImage' 
+                            accept='image/jpg,image/png,image/jpeg,image/gif'
+                            onChange={ onChangeDetailImageUpload }
+                            ref={ detailImageInput }
+                        />
+                        <button 
+                            onClick={ onClickDetailImageUpload } 
+                        >
+                            이미지 상세정보 입력
                             </button>
                     </div>
-                <div className={style.subBox}>
-                    <h1>상세설명 이미지 입력</h1>
-                    <input type="file"/>
-                </div>
             </div>
             <div className={style.box}>
                 <h1>대여료</h1>
@@ -170,7 +209,7 @@ function SearchBox(){
                     <tr><th>번호</th><th>부품명</th><th>필수 개수</th></tr>
                     {insertProduct.requiredPartDTOList.map((part, index)=>(
                             <tr> <td>{index+1}</td>
-                                 <td>{part.name}</td><td>{part.num}개</td></tr>
+                                 <td>{part.partsName}</td><td>{part.partsCount}개</td></tr>
                         ))}
                     </table>
                 </div>
@@ -196,7 +235,7 @@ function SearchBox(){
                     <tr><th>번호</th><th>체크리스트</th><th>결과 값</th></tr>
                     {insertProduct.detailInspectionCheckListDTOList.map((check, index)=>(
                             <tr> <td>{index+1}</td>
-                                 <td>{check.name}</td><td>{check.results}</td></tr>
+                                 <td>{check.checkContent}</td><td>{check.resultType}</td></tr>
                         ))}
                     </table>
                 </div>
