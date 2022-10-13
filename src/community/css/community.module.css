@@ -175,4 +175,45 @@
 }
 input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit-appearance: hidden; appearance: hidden; }
 
+.sbox {
+  padding: 10px;
+}
+.sbox>h1 {
+  width: 100px;
+}
+
+.ntbox {
+  padding: 10px;
+}
+
+.ntbox>h1 {
+  width: 100px;
+}
+
+.ntbox>input {
+  box-sizing: border-box;
+  width: 500px;
+  height: 30px;
+  padding: 10px;
+
+}
+
+.nsbox {
+  padding: 10px;
+}
+
+.nsbox>h1 {
+  width: 100px;
+}
+
+.nsbox>textarea {
+  box-sizing: border-box;
+  width: 900px;
+  height: 200px;
+  padding: 10px;
+}
+
+.buttonbox {
+  padding: 10px
+}
 
