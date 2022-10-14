@@ -1,3 +1,9 @@
+import style from "../css/community.module.css"
+
+
+function ModifyNotice() {
+
+
 return (
   <div className={style.componentBox}>
       <div className={style.titleBox}>공지사항 등록</div>
@@ -22,9 +28,13 @@ return (
             <textarea cols="50" rows="10"/>
           </div>
           <div className={style.buttonbox}>
-            <button>상품 공지사항 등록</button>
+            <button>상품 공지사항 수정</button>
             <button>취소</button>
           </div>
       </div>
   </div>
 )
+
+}
+
+export default ModifyNotice;

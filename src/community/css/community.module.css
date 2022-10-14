@@ -178,9 +178,16 @@ input[type="date"]::-webkit-calendar-picker-indicator { display: hidden; -webkit
 .sbox {
   padding: 10px;
 }
-.sbox>h1 {
-  width: 100px;
+.sbox input {
+  width: 15px;
+  height: 15px;
 }
+
+.sbox .sboxh1{
+  width: 100px;
+  height: 30px;
+}
+
 
 .ntbox {
   padding: 10px;
