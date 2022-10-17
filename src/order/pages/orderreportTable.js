@@ -36,30 +36,32 @@ function OrderReportTable() {
     return orderSearch && (
         <div className="box">
             <table>
-                <tr><th>주문번호</th><th>주문금액</th><th>쿠폰사용금액</th><th>포인트사용금액</th><th>주문날짜</th><th>회원번호</th></tr>
+                <tr><th>주문번호</th><th>주문금액</th><th>결제수단</th><th>포인트사용금액</th><th>주문날짜</th><th>회원번호</th><th>배송정보</th></tr>
                 {orderSearch.order == undefined ? 
                 (orderList.map (list => {
                     return (
                         <tr>
                             <td>{list.orderId}</td>
                             <td>{list.orderAmount}</td>
-                            <td>{list.couponUsedAmount}</td>
+                            <td>{list.paymentMethod}</td>
                             <td>{list.pointsUsedAmount}</td>
                             <td>{list.orderDate}</td>
                             <td>{list.memberCode}</td>
+                            <td><button>배송정보</button></td>
                         </tr>
                     )
-                })) : 
-                
+                })) 
+                : 
                 (orderSearch.order.map (search => {
                     return (
                         <tr>
                             <td>{search.orderId}</td>
                             <td>{search.orderAmount}</td>
-                            <td>{search.couponUsedAmount}</td>
+                            <td>{search.paymentMethod}</td>
                             <td>{search.pointsUsedAmount}</td>
                             <td>{search.orderDate}</td>
                             <td>{search.memberCode}</td>
+                            <td><button>배송정보</button></td>
                         </tr>
                     )
                 }))}

@@ -1,7 +1,9 @@
+
 import style from "../css/community.module.css"
 
 
 function ModifyNotice() {
+
 
 
 return (
@@ -37,4 +39,3 @@ return (
 
 }
 
-export default ModifyNotice;

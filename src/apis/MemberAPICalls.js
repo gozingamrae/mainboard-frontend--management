@@ -71,7 +71,9 @@ export const callPostBlacklistAPI = ({form}) => {
 }
 
 export const callGetSearchMember = ({form}) => {
-    const requestURL = `http://192.168.0.64:8080/members/condition`;
+
+    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/members/condition`;
+
     console.log("form:::", form);
 
     return async (dispatch, getState) => {
