@@ -4,7 +4,7 @@ import style from "../css/Inspect.module.css"
 import data from "../data/Inspect.data.json"
 function InspectTable(){
     const inventorys= [
-                        {"sirialNo" : "3", "category":"부루마블" , "status": "검수중" , "등급": "상" , "대여자" : ""}]
+                        {"sirialNo" : "1", "category":"도블 쿠키런 킹덤" , "status": "검수중" , "등급": "상" , "대여자" : ""}]
 
     return (
         <div className={style.box}>

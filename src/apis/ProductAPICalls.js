@@ -8,7 +8,7 @@ import {
 export const callProductRegistAPI = ({form}) => {
     console.log('[ProduceAPICalls] callProductRegistAPI Call');
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products`;
+    const requestURL = `http://192.168.0.64:8080/products`;
 
     return async (dispatch, getState) => {
 
@@ -35,9 +35,9 @@ export const callProductListAPI = ({currentPage}) => {
     let requestURL;
 
     if(currentPage !== undefined || currentPage !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products?offset=${currentPage}&limit=10`;
+        requestURL = `http://192.168.0.64:8080/products?offset=${currentPage}&limit=10`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products?offset=${currentPage}&limit=10`;
+        requestURL = `http://192.168.0.64:8080/products?offset=${currentPage}&limit=10`;
     }
     
     console.log('[ProduceAPICalls] requestURL : ', requestURL);
@@ -65,9 +65,9 @@ export const callSearchProductListAPI = ({currentPage}) => {
     let requestURL;
 
     if(currentPage !== undefined || currentPage !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/search?offset=1&limit=10`;
+        requestURL = `http://192.168.0.64:8080/products/search?offset=1&limit=10`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/search?offset=1&limit=10`;
+        requestURL = `http://192.168.0.64:8080/products/search?offset=1&limit=10`;
     }
     
     console.log('[SearchProduceAPICalls] requestURL : ', requestURL);
@@ -103,9 +103,9 @@ export const callProductListByProductNameAPI = ({productName}) => {
     let requestURL;
 
     if(productName !== undefined || productName !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?productName=${productName}`;
+        requestURL = `http://192.168.0.64:8080/products/name?productName=${productName}`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/name?productName=${productName}`;
+        requestURL = `http://192.168.0.64:8080/products/name?productName=${productName}`;
     }
     
     console.log('[ProductListByProductNameAPI ] requestURL : ', requestURL);
@@ -133,9 +133,9 @@ export const callDetailProductAPI = ({productCode}) => {
     let requestURL;
 
     if(productCode !== undefined || productCode !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/${productCode}`;
+        requestURL = `http://192.168.0.64:8080/products/${productCode}`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/${productCode}`;
+        requestURL = `http://192.168.0.64:8080/products/${productCode}`;
     }
     
     console.log('[SearchProduceAPICalls] requestURL : ', requestURL);

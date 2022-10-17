@@ -9,15 +9,19 @@ function AddNotice() {
             <div className={style.titleBox}>공지사항 등록</div>
             <div className={style.box}>
                 <div className={style.sbox}>
-                  <h1>분류</h1>
+
+                  <h1 className={style.sboxh1}>분류</h1>
+
                   <select>
                     <option>일반</option>
                     <option>이벤트</option>
                     <option>배송지연</option>
                     <option>상품</option>
                   </select>
-                  <input type="checkbox"/> 
-                  <h1>중요 공지사항으로 설정</h1>
+
+                  <input type="checkbox"/>
+                  <h1 className={style.sboxh2}>중요 공지사항으로 설정</h1>
+
                 </div>
                 <div className={style.ntbox}>
                   <h1>제목</h1>

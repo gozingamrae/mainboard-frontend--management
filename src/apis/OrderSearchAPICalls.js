@@ -9,7 +9,7 @@ export function callSearchOrderAPI(text, type) {
             console.log(text)
             const resultOrderId = await axios({
                 method: "Post",
-                url: 'http://127.0.0.1:8080/order/list/by-orderid',
+                url: 'http://192.168.0.64:8080/order/list/by-orderid',
                 data : {
                     "text": text
                 }
@@ -19,7 +19,7 @@ export function callSearchOrderAPI(text, type) {
         } else if (type == "productName"){
             const resultProductName = await axios({
                 method: "Post",
-                url:'http://127.0.0.1:8080/order/list/by-productname',
+                url:'http://192.168.0.64:8080/order/list/by-productname',
                 data : {
                     text: text
                 }
