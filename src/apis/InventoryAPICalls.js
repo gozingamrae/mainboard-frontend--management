@@ -12,9 +12,9 @@ export const callDetailProductAPI = ({productCode}) => {
     let requestURL;
 
     if(productCode !== undefined || productCode !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/${productCode}`;
+        requestURL = `http://192.168.0.64:8080/products/${productCode}`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/products/${productCode}`;
+        requestURL = `http://192.168.0.64:8080/products/${productCode}`;
     }
     
     console.log('[SearchProduceAPICalls] requestURL : ', requestURL);
@@ -43,9 +43,9 @@ export const callInventoryListAPI = ({currentPage}) => {
     let requestURL;
 
     if(currentPage !== undefined || currentPage !== null){
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/inventorys?offset=${currentPage}&limit=10`;
+        requestURL = `http://192.168.0.64:8080/inventorys?offset=${currentPage}&limit=10`;
     }else {
-        requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/inventorys?offset=${currentPage}&limit=10`;
+        requestURL = `http://192.168.0.64:8080/inventorys?offset=${currentPage}&limit=10`;
     }
     
     console.log('[ProduceAPICalls] requestURL : ', requestURL);
@@ -71,7 +71,7 @@ export const callInventoryListAPI = ({currentPage}) => {
 export const callInventoryRegistAPI = ({form}) => {
     console.log('[InventoryAPICalls] callInventoryRegistAPI Call');
 
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/inventorys`;
+    const requestURL = `http://192.168.0.64:8080/inventorys`;
 
     return async (dispatch, getState) => {
 

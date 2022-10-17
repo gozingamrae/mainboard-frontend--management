@@ -13,6 +13,7 @@ import PointReport from "./point/pages/pointreport";
 import OrderReport from "./order/pages/orderreport";
 
 import Inspect from "./inspect/Inspect";
+import InspectList from "./inspect/InspectList";
 import Common from "./common/Common";
 import Member from "./member/pages/Member";
 import BlackList from "./member/pages/Blacklist";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/pointreport" element={<PointReport/>}/>
           <Route path="/orderreport" element={<OrderReport/>}/>
           <Route path="/inspect" element={<Inspect/>} />
+          <Route path="/inspectList" element={<InspectList/>} />
           <Route path="/updateInspect" element={<UpdateInspect/>}/>
           <Route path="/member" element={<Member/>}/>
           <Route path="/blacklist" element={<BlackList/>} />

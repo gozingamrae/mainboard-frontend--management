@@ -1,11 +1,12 @@
 import {
     GET_BLACKLIST,
     GET_MEMBERS,
-    POST_BLACKLIST
+    POST_BLACKLIST,
+    GET_SEARCH
 } from '../modules/memberModules/memberAPIModule'
 
 export const callGetMembersAPI = () => {
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/members/lists`;
+    const requestURL = `http://192.168.0.64:8080/members/lists`;
 
     return async (dispatch, getState) => {
         const result = await fetch(requestURL,{
@@ -25,7 +26,7 @@ export const callGetMembersAPI = () => {
 }
 
 export const callGetBlacklistAPI = () => {
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/members/blacklist`;
+    const requestURL = `http://192.168.0.64:8080/members/blacklist`;
 
     return async (dispatch, getState) => {
         const result = await fetch(requestURL,{
@@ -45,7 +46,7 @@ export const callGetBlacklistAPI = () => {
 }
 
 export const callPostBlacklistAPI = ({form}) => {
-    const requestURL = `http://${process.env.REACT_APP_RESTAPI_IP}:8080/members/blacklist`;
+    const requestURL = `http://192.168.0.64:8080/members/blacklist`;
     console.log(form);
 
     return async (dispatch, getState) => {
@@ -69,3 +70,29 @@ export const callPostBlacklistAPI = ({form}) => {
     };
 }
 
+export const callGetSearchMember = ({form}) => {
+    const requestURL = `http://192.168.0.64:8080/members/condition`;
+    console.log("form:::", form);
+
+    return async (dispatch, getState) => {
+        const result = await fetch(requestURL,{
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "*/*",
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                memberId: form.memberId,
+                memberName: form.memberName,
+                withdrawalMember: form.withdrawalMember,
+                joinDate: form.joinDate
+            })
+        })
+        .then(res => res.json());
+        
+        console.log('[MemberAPICalls] callPostBlacklistAPI RESULT : ', result);
+        
+        dispatch({ type: GET_SEARCH,  payload: result });
+    };
+}

@@ -2,7 +2,7 @@ import { GET_ORDERLIST } from "../modules/orderModules/orderModule";
 
 export function callGetOrderListAPI(){
 
-    const requestURL = "http://127.0.0.1:8080/order/list";
+    const requestURL = "http://192.168.0.64:8080/order/list";
 
     return async function getOrderList(dispatch) {
 

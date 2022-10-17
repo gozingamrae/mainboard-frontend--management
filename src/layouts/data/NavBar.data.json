@@ -4,7 +4,7 @@
             {"name": "재고관리","results" :[{"name" : "재고 입고", "src" : "/warehousing"},
                                              {"name" : "재고 조회", "src" : "/inventory"},
                                              {"name" : "검수하기", "src" : "/inspect"},
-                                             {"name" : "검수목록 조회", "src" : "/inspect"}]},
+                                             {"name" : "검수목록 조회", "src" : "/inspectList"}]},
                {"name": "판매관리", "results" :[{"name" : "주문 검색", "src" : "/orderreport"},
                                                 {"name" : "배송 현황 관리", "src" : "/delivery"}]},
                
